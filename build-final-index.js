@@ -367,8 +367,8 @@ const finalHtml = `<!DOCTYPE html>
             top: 1.5rem;
             left: 1.5rem;
             z-index: 60;
-            width: 96px;
-            height: 96px;
+            width: 108px;
+            height: 108px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.90);
             backdrop-filter: blur(16px);
@@ -508,18 +508,18 @@ const finalHtml = `<!DOCTYPE html>
         <div class="absolute inset-0 bg-white/20"></div>
     </div>
 
-    <!-- Floating Circular "לקורסים נוספים" Button (Moved to LEFT, enlarged, pastel shades, with animated floating integral symbol) -->
-    <a href="../../index.html" 
+    <!-- Floating Circular "לקורסים נוספים" Button (Moved to LEFT, enlarged to 108px, points to https://all-the-courses.pages.dev/) -->
+    <a href="https://all-the-courses.pages.dev/" 
        class="floating-course-switcher-btn group" 
-       title="חזרה לפורטל הראשי של כל הקורסים">
+       title="מעבר לפורטל כל הקורסים">
         <div class="relative z-10 flex flex-col items-center justify-center pointer-events-none select-none">
-            <span class="font-caveat text-3xl sm:text-4xl text-indigo-700 font-bold leading-none floating-symbol-integral">
+            <span class="font-caveat text-4xl sm:text-5xl text-indigo-700 font-bold leading-none floating-symbol-integral">
                 ∫
             </span>
-            <span class="text-[10px] font-extrabold text-slate-800 tracking-tight leading-none mt-0.5">
+            <span class="text-[11px] font-extrabold text-slate-800 tracking-tight leading-none mt-0.5">
                 לקורסים
             </span>
-            <span class="text-[9px] font-bold text-indigo-600 leading-none">
+            <span class="text-[10px] font-bold text-indigo-600 leading-none">
                 נוספים
             </span>
         </div>
