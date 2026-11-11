@@ -121,28 +121,38 @@
             opacity: 0.9;
         }
 
-        /* SPACIOUS EXPANDED POPOVER ON HOVER (Directly centered, never squished!) */
+        .unit-bubble-wrapper {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Whichever bubble is hovered gets elevated ABOVE all other units (Unit 4 never covers Unit 3) */
+        .unit-bubble-wrapper:hover,
+        .unit-bubble-wrapper:focus-within {
+            z-index: 99 !important;
+        }
+
+        /* SPACIOUS EXPANDED POPOVER ON HOVER (Directly centered, matching border color, never squished!) */
         .unit-expanded-popover {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) scale(0.95);
-            width: 280px;
-            min-height: 165px;
+            transform: translate(-50%, -50%) scale(0.92);
+            width: 290px;
+            min-height: 170px;
             border-radius: 1.75rem;
-            background: rgba(255, 255, 255, 0.96);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
-            border: 1.5px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 0 20px 40px -10px var(--glow-color), 0 0 0 1px rgba(99, 102, 241, 0.15);
             z-index: 100;
             opacity: 0;
             pointer-events: none;
-            transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .unit-bubble-wrapper:hover .unit-expanded-popover {
-            display: flex;
+        .unit-bubble-wrapper:hover .unit-expanded-popover,
+        .unit-bubble-wrapper:focus-within .unit-expanded-popover {
             opacity: 1;
             pointer-events: auto;
             transform: translate(-50%, -50%) scale(1);
@@ -180,16 +190,16 @@
             box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
         }
 
-        /* FLOATING "לקורסים נוספים" BUTTON: MOVED TO LEFT, PASTEL DROPLET STYLE WITH FLOATING INTEGRAL ICON */
+        /* FLOATING "לקורסים נוספים" BUTTON: FIXED TO TOP-LEFT OF PAGE (NOT SCREEN SCROLLING), ENLARGED, SMOOTH FLOATING INTEGRAL */
         .floating-course-switcher-btn {
-            position: fixed;
+            position: absolute;
             top: 1.5rem;
             left: 1.5rem;
             z-index: 60;
-            width: 86px;
-            height: 86px;
+            width: 96px;
+            height: 96px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.88);
+            background: rgba(255, 255, 255, 0.90);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
@@ -203,7 +213,7 @@
         }
 
         .floating-course-switcher-btn:hover {
-            transform: scale(1.08);
+            transform: scale(1.06);
             box-shadow: 0 14px 35px rgba(99, 102, 241, 0.25);
         }
 
@@ -225,13 +235,16 @@
             100% { transform: rotate(360deg); }
         }
 
-        @keyframes floatingIntegral {
-            0%, 100% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 2px rgba(99, 102, 241, 0.4)); }
-            50% { transform: translateY(-3px) scale(1.1); filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.7)); }
+        @keyframes gentleIntegralFloat {
+            0% { transform: translateY(3px) rotate(-3deg); filter: drop-shadow(0 2px 4px rgba(99, 102, 241, 0.25)); }
+            50% { transform: translateY(-4px) rotate(3deg); filter: drop-shadow(0 4px 8px rgba(99, 102, 241, 0.35)); }
+            100% { transform: translateY(3px) rotate(-3deg); filter: drop-shadow(0 2px 4px rgba(99, 102, 241, 0.25)); }
         }
 
         .floating-symbol-integral {
-            animation: floatingIntegral 2.8s ease-in-out infinite;
+            animation: gentleIntegralFloat 4.2s ease-in-out infinite;
+            display: inline-block;
+            transform-origin: center center;
         }
 
         .explorer-slider-track {
@@ -338,37 +351,103 @@
                 קורס חשבון אינפיניטסימלי 2 מהווה את שער הכניסה לאנליזה מתקדמת: מאינטגרלים לא אמיתיים והתכנסות במידה שווה של סדרות וטורי פונקציות, ועד לגבולות כפולים, נגזרות חלקיות, פונקציות סתומות וקיצון תחת אילוצים במרחב הרב-ממדי.
             </p>
 
-            <!-- Interactive Accordion Guide (Site Structure & How to Master the Course) -->
-            <div class="w-full max-w-xl bg-slate-50/80 rounded-2xl border border-indigo-100 shadow-2xs overflow-hidden transition-all duration-300">
-                <button onclick="toggleGuideAccordion()" 
-                        class="w-full px-5 py-3 flex items-center justify-between text-xs sm:text-sm font-bold text-slate-700 hover:text-indigo-700 hover:bg-indigo-50/50 transition-colors cursor-pointer">
-                    <span class="flex items-center gap-2">
-                        <i class="fa-solid fa-graduation-cap text-indigo-600"></i>
-                        <span>מדריך מהיר: מבנה האתר ואיך ללמוד כאן בהצלחה ✨</span>
+            <!-- Framed Academic Learning Guide Card (Open by default, beautifully defined, no accordion button) -->
+            <div class="w-full max-w-3xl bg-slate-50/90 rounded-2xl p-5 sm:p-6 border border-indigo-100 shadow-sm transition-all duration-300 hover:shadow-md hover:border-indigo-200 text-right mt-1" dir="rtl">
+                
+                <div class="flex items-center gap-2 mb-3 pb-2.5 border-b border-indigo-100/80">
+                    <span class="w-8 h-8 rounded-xl bg-indigo-100 flex items-center justify-center text-indigo-700 text-sm shadow-2xs">
+                        <i class="fa-solid fa-graduation-cap"></i>
                     </span>
-                    <i id="guide-chevron" class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
-                </button>
-                <div id="guide-accordion-content" class="hidden px-5 pb-5 pt-2 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 text-right">
-                    <div class="space-y-3">
-                        <div>
-                            <span class="font-bold text-indigo-950 block mb-0.5">📚 שלושת השלבים המובנים בכל פרק:</span>
-                            <ul class="list-disc list-inside space-y-1 text-slate-600 pr-1 text-[12px] sm:text-xs">
-                                <li><strong>תיאוריה והסברים מקיפים:</strong> פיתוח אינטואיטיבי של כל ההגדרות, המשפטים המרכזיים והוכחות שלב-אחר-שלב.</li>
-                                <li><strong>סימולציות מתמטיות חיות:</strong> הדמיות אינטראקטיביות להמחשת התכנסות, עקומות ומשטחים תלת-ממדיים.</li>
-                                <li><strong>מאגר שאלות מודרכות:</strong> תרגול אקטיבי של שאלות אמריקאיות עם רמזים מדורגים ופתרונות מלאים.</li>
-                            </ul>
+                    <div>
+                        <h3 class="text-sm sm:text-base font-black text-indigo-950 leading-tight">
+                            מדריך הלמידה: מבנה הפרקים ומשאבי ההצלחה בקורס
+                        </h3>
+                        <p class="text-[11px] text-slate-500 font-medium">
+                            כלים פדגוגיים מתקדמים ללמידה מקיפה, הבנה אינטואיטיבית והצלחה בבחינה
+                        </p>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- 3 Core Learning Modes in each Chapter -->
+                    <div>
+                        <div class="flex items-center gap-1.5 mb-2">
+                            <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
+                            <span class="font-black text-xs sm:text-sm text-indigo-950">שלושת מצבי הלמידה המובנים בכל פרק:</span>
                         </div>
-                        <div>
-                            <span class="font-bold text-indigo-950 block mb-0.5">🚀 משאבי ההצלחה לבחינה:</span>
-                            <p class="text-[12px] text-slate-600 leading-normal">
-                                <strong>משחק אתגר הטירוף (Gm):</strong> תרגול שאלות קונספטואליות בזמן אמת.<br>
-                                <strong>סיכומי עזר ממוקדים (Sm):</strong> דפי נוסחאות ורשימת משפטי מפתח לשינון מהיר.<br>
-                                <strong>מאגר הבחינות הרשמי (Xm / dx=100):</strong> פתרונות מפורטים ומנותחים למועדי עבר.<br>
-                                <strong>משוואת 100 האינטגרלים:</strong> לחצו על סמל האינטגרל או פס החלוקה למסע מודרך של 100 שאלות!
-                            </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                            <div class="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs flex flex-col justify-start">
+                                <div class="flex items-center gap-1.5 mb-1 text-sky-700 font-bold text-xs">
+                                    <i class="fa-regular fa-eye"></i>
+                                    <span>מצב בגובה העיניים</span>
+                                </div>
+                                <p class="text-[11px] text-slate-600 leading-relaxed font-medium">
+                                    הסברים פשוטים, שפה ישירה ודוגמאות מוחשיות שמפרקות כל מושג מתמטי מורכב לגורמים.
+                                </p>
+                            </div>
+
+                            <div class="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs flex flex-col justify-start">
+                                <div class="flex items-center gap-1.5 mb-1 text-indigo-700 font-bold text-xs">
+                                    <i class="fa-solid fa-scale-balanced"></i>
+                                    <span>מצב משפטי ופורמלי</span>
+                                </div>
+                                <p class="text-[11px] text-slate-600 leading-relaxed font-medium">
+                                    ניסוחים מתמטיים מדויקים, תנאי משפטים, דקויות הגדרה והוכחות קפדניות שלב-אחר-שלב.
+                                </p>
+                            </div>
+
+                            <div class="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs flex flex-col justify-start">
+                                <div class="flex items-center gap-1.5 mb-1 text-emerald-700 font-bold text-xs">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                    <span>סימולציות חיות</span>
+                                </div>
+                                <p class="text-[11px] text-slate-600 leading-relaxed font-medium">
+                                    הדמיות אינטראקטיביות (בסגנון 3Blue1Brown) להמחשת התכנסות, עקומות ומשטחים תלת-ממדיים.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Core Course Resources -->
+                    <div>
+                        <div class="flex items-center gap-1.5 mb-2">
+                            <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+                            <span class="font-black text-xs sm:text-sm text-indigo-950">משאבי ההצלחה לבחינה:</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                            <a href="game.html" class="p-3 rounded-xl bg-white hover:bg-emerald-50/60 border border-slate-200/80 hover:border-emerald-300 shadow-2xs flex flex-col justify-start transition-all group/res text-decoration-none">
+                                <div class="flex items-center gap-1.5 mb-1 text-emerald-700 font-bold text-xs">
+                                    <i class="fa-solid fa-gamepad group-hover/res:scale-110 transition-transform"></i>
+                                    <span>משחק תרגול (G<sub>m</sub>)</span>
+                                </div>
+                                <p class="text-[11px] text-slate-600 leading-relaxed font-medium">
+                                    תרגול אינטראקטיבי דינמי בזמן אמת, צבירת ניקוד, שאלות מושגיות ומעקב התקדמות חי.
+                                </p>
+                            </a>
+
+                            <a href="exams.html" class="p-3 rounded-xl bg-white hover:bg-indigo-50/60 border border-slate-200/80 hover:border-indigo-300 shadow-2xs flex flex-col justify-start transition-all group/res text-decoration-none">
+                                <div class="flex items-center gap-1.5 mb-1 text-indigo-700 font-bold text-xs">
+                                    <i class="fa-solid fa-award group-hover/res:scale-110 transition-transform"></i>
+                                    <span>מאגר בחינות (X<sub>m</sub> / dx=100)</span>
+                                </div>
+                                <p class="text-[11px] text-slate-600 leading-relaxed font-medium">
+                                    מאגר בחינות עבר רשמיות של האוניברסיטה הפתוחה פתורות ב-100% עם ניתוח מלא.
+                                </p>
+                            </a>
+
+                            <a href="summary.html" class="p-3 rounded-xl bg-white hover:bg-sky-50/60 border border-slate-200/80 hover:border-sky-300 shadow-2xs flex flex-col justify-start transition-all group/res text-decoration-none">
+                                <div class="flex items-center gap-1.5 mb-1 text-sky-700 font-bold text-xs">
+                                    <i class="fa-solid fa-book-bookmark group-hover/res:scale-110 transition-transform"></i>
+                                    <span>סיכומי עזר (S<sub>m</sub>)</span>
+                                </div>
+                                <p class="text-[11px] text-slate-600 leading-relaxed font-medium">
+                                    דפי נוסחאות מרוכזים ורשימת משפטי מפתח לשינון מהיר וממוקד לקראת המבחן.
+                                </p>
+                            </a>
                         </div>
                     </div>
                 </div>
+
             </div>
 
         </header>
@@ -381,9 +460,9 @@
             <!-- Default Equation View (מצב רגיל של משוואת הקורס - מוגדר ב-LTR) -->
             <div id="course-equation-view" class="w-full flex items-center justify-between gap-2 sm:gap-3" dir="ltr">
                 
-                <!-- 1. LEFT RED CALLIGRAPHY INTEGRAL COLUMN (0 TO 100) WITH INTERACTIVE MOUSE TRACKING -->
+                <!-- 1. LEFT RED CALLIGRAPHY INTEGRAL COLUMN (0 TO 100) WITH INTERACTIVE MOUSE TRACKING (SHIFTED LEFT AWAY FROM CIRCLE 1) -->
                 <div id="integral-col-interactive" 
-                     class="integral-column relative h-56 sm:h-64 md:h-72 px-1 flex flex-col justify-between items-center shrink-0 cursor-pointer"
+                     class="integral-column relative h-56 sm:h-64 md:h-72 px-1 flex flex-col justify-between items-center shrink-0 cursor-pointer mr-6 sm:mr-8 md:mr-10"
                      onmousemove="handleIntegralMouseMove(event)"
                      onmouseleave="handleIntegralMouseLeave()"
                      onclick="handleIntegralClick(event)"
@@ -436,14 +515,18 @@
                     <span class="font-caveat font-bold text-3xl sm:text-4xl text-slate-900 select-none relative z-10">1</span>
 
                     <!-- Spacious Expanded Card Popover Revealed on Hover Centered in Place -->
-                    <div class="unit-expanded-popover hidden p-4 flex-col items-center text-center shadow-2xl" dir="rtl">
+                    <div class="unit-expanded-popover p-4 flex-col items-center text-center shadow-2xl" 
+                         style="border: 2px solid #38bdf8; box-shadow: 0 20px 45px -10px rgba(56, 189, 248, 0.5), 0 0 16px rgba(56, 189, 248, 0.5);" 
+                         dir="rtl">
                         <div class="flex items-center gap-1.5 mb-1.5">
-                            <span class="w-2 h-2 rounded-full" style="background: #38bdf8;"></span>
+                            <span class="w-2.5 h-2.5 rounded-full" style="background: #38bdf8;"></span>
                             <span class="text-xs font-black text-indigo-950">יחידה 1 • אינטגרל לא אמיתי</span>
                         </div>
-                        <p class="text-[11px] text-slate-700 leading-relaxed mb-3 font-medium">אינטגרלים של פונקציות בקטעים אינסופיים או עם נקודות סינגולריות. נלמד מתי השטח מתחת לעקומה נשאר סופי, איך משווים לפונקציות פשוטות, ומבחני התכנסות מרכזיים (השוואה ישירה וגבולית, מבחן אבל ומבחן דיריכלה).</p>
-                        <span class="text-[11px] font-bold px-3 py-1 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white shadow-xs transition-colors">
-                            לחצו לכניסה ליחידה ←
+                        <p class="text-[11.5px] text-slate-700 leading-relaxed mb-3 font-medium">אינטגרלים של פונקציות בקטעים אינסופיים או עם נקודות סינגולריות. נלמד מתי השטח מתחת לעקומה נשאר סופי, איך משווים לפונקציות פשוטות, ומבחני התכנסות מרכזיים (השוואה ישירה וגבולית, מבחן אבל ומבחן דיריכלה).</p>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-[11px] font-bold text-white shadow-xs transition-transform hover:scale-105" 
+                              style="background: linear-gradient(135deg, #38bdf8, #0ea5e9);">
+                            <span>לחצו לכניסה ליחידה</span>
+                            <i class="fa-solid fa-arrow-left text-[10px]"></i>
                         </span>
                     </div>
                 </a>
@@ -467,14 +550,18 @@
                     <span class="font-caveat font-bold text-3xl sm:text-4xl text-slate-900 select-none relative z-10">2</span>
 
                     <!-- Spacious Expanded Card Popover Revealed on Hover Centered in Place -->
-                    <div class="unit-expanded-popover hidden p-4 flex-col items-center text-center shadow-2xl" dir="rtl">
+                    <div class="unit-expanded-popover p-4 flex-col items-center text-center shadow-2xl" 
+                         style="border: 2px solid #818cf8; box-shadow: 0 20px 45px -10px rgba(99, 102, 241, 0.5), 0 0 16px rgba(99, 102, 241, 0.5);" 
+                         dir="rtl">
                         <div class="flex items-center gap-1.5 mb-1.5">
-                            <span class="w-2 h-2 rounded-full" style="background: #818cf8;"></span>
+                            <span class="w-2.5 h-2.5 rounded-full" style="background: #818cf8;"></span>
                             <span class="text-xs font-black text-indigo-950">יחידה 2 • סדרות פונקציות</span>
                         </div>
-                        <p class="text-[11px] text-slate-700 leading-relaxed mb-3 font-medium">איך מתנהגת סדרה של פונקציות כאשר האינדקס n שואף לאינסוף. נבדיל בין התכנסות נקודתית להתכנסות אחידה (במידה שווה - במ"ש), נשתמש במבחן הסופרמום Mn, ונבדוק מתי מותר להחליף סדר גבול ואינטגרל או נגזרת.</p>
-                        <span class="text-[11px] font-bold px-3 py-1 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white shadow-xs transition-colors">
-                            לחצו לכניסה ליחידה ←
+                        <p class="text-[11.5px] text-slate-700 leading-relaxed mb-3 font-medium">איך מתנהגת סדרה של פונקציות כאשר האינדקס n שואף לאינסוף. נבדיל בין התכנסות נקודתית להתכנסות אחידה (במידה שווה - במ"ש), נשתמש במבחן הסופרמום Mn, ונבדוק מתי מותר להחליף סדר גבול ואינטגרל או נגזרת.</p>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-[11px] font-bold text-white shadow-xs transition-transform hover:scale-105" 
+                              style="background: linear-gradient(135deg, #818cf8, #6366f1);">
+                            <span>לחצו לכניסה ליחידה</span>
+                            <i class="fa-solid fa-arrow-left text-[10px]"></i>
                         </span>
                     </div>
                 </a>
@@ -498,14 +585,18 @@
                     <span class="font-caveat font-bold text-3xl sm:text-4xl text-slate-900 select-none relative z-10">3</span>
 
                     <!-- Spacious Expanded Card Popover Revealed on Hover Centered in Place -->
-                    <div class="unit-expanded-popover hidden p-4 flex-col items-center text-center shadow-2xl" dir="rtl">
+                    <div class="unit-expanded-popover p-4 flex-col items-center text-center shadow-2xl" 
+                         style="border: 2px solid #34d399; box-shadow: 0 20px 45px -10px rgba(16, 185, 129, 0.5), 0 0 16px rgba(16, 185, 129, 0.5);" 
+                         dir="rtl">
                         <div class="flex items-center gap-1.5 mb-1.5">
-                            <span class="w-2 h-2 rounded-full" style="background: #34d399;"></span>
+                            <span class="w-2.5 h-2.5 rounded-full" style="background: #34d399;"></span>
                             <span class="text-xs font-black text-indigo-950">יחידה 3 • טורי פונקציות</span>
                         </div>
-                        <p class="text-[11px] text-slate-700 leading-relaxed mb-3 font-medium">סכום אינסופי של פונקציות. נלמד את מבחן ה-M של ויירשטראס להתכנסות במ"ש, נחקור טורי חזקות, רדיוס ותחום התכנסות R, גזירה ואינטגרציה איבר-איבר, ואיך להציג פונקציות מוכרות כטורי טיילור ומקלורן.</p>
-                        <span class="text-[11px] font-bold px-3 py-1 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white shadow-xs transition-colors">
-                            לחצו לכניסה ליחידה ←
+                        <p class="text-[11.5px] text-slate-700 leading-relaxed mb-3 font-medium">סכום אינסופי של פונקציות. נלמד את מבחן ה-M של ויירשטראס להתכנסות במ"ש, נחקור טורי חזקות, רדיוס ותחום התכנסות R, גזירה ואינטגרציה איבר-איבר, ואיך להציג פונקציות מוכרות כטורי טיילור ומקלורן.</p>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-[11px] font-bold text-white shadow-xs transition-transform hover:scale-105" 
+                              style="background: linear-gradient(135deg, #34d399, #10b981);">
+                            <span>לחצו לכניסה ליחידה</span>
+                            <i class="fa-solid fa-arrow-left text-[10px]"></i>
                         </span>
                     </div>
                 </a>
@@ -529,14 +620,18 @@
                     <span class="font-caveat font-bold text-3xl sm:text-4xl text-slate-900 select-none relative z-10">4</span>
 
                     <!-- Spacious Expanded Card Popover Revealed on Hover Centered in Place -->
-                    <div class="unit-expanded-popover hidden p-4 flex-col items-center text-center shadow-2xl" dir="rtl">
+                    <div class="unit-expanded-popover p-4 flex-col items-center text-center shadow-2xl" 
+                         style="border: 2px solid #c084fc; box-shadow: 0 20px 45px -10px rgba(168, 85, 247, 0.5), 0 0 16px rgba(168, 85, 247, 0.5);" 
+                         dir="rtl">
                         <div class="flex items-center gap-1.5 mb-1.5">
-                            <span class="w-2 h-2 rounded-full" style="background: #c084fc;"></span>
+                            <span class="w-2.5 h-2.5 rounded-full" style="background: #c084fc;"></span>
                             <span class="text-xs font-black text-indigo-950">יחידה 4 • המרחב האוקלידי</span>
                         </div>
-                        <p class="text-[11px] text-slate-700 leading-relaxed mb-3 font-medium">מעבר ממתמטיקה של משתנה יחיד למרחב של וקטורים במספר ממדים. מרחקים, נורמות, אי-שוויון קושי-שוורץ, קבוצות פתוחות, סגורות וקומפקטיות (משפט היינה-בורל), ועקומות במרחב עם חישוב וקטור מהירות ואורך קשת.</p>
-                        <span class="text-[11px] font-bold px-3 py-1 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white shadow-xs transition-colors">
-                            לחצו לכניסה ליחידה ←
+                        <p class="text-[11.5px] text-slate-700 leading-relaxed mb-3 font-medium">מעבר ממתמטיקה של משתנה יחיד למרחב של וקטורים במספר ממדים. מרחקים, נורמות, אי-שוויון קושי-שוורץ, קבוצות פתוחות, סגורות וקומפקטיות (משפט היינה-בורל), ועקומות במרחב עם חישוב וקטור מהירות ואורך קשת.</p>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-[11px] font-bold text-white shadow-xs transition-transform hover:scale-105" 
+                              style="background: linear-gradient(135deg, #c084fc, #a855f7);">
+                            <span>לחצו לכניסה ליחידה</span>
+                            <i class="fa-solid fa-arrow-left text-[10px]"></i>
                         </span>
                     </div>
                 </a>
@@ -560,14 +655,18 @@
                     <span class="font-caveat font-bold text-3xl sm:text-4xl text-slate-900 select-none relative z-10">5</span>
 
                     <!-- Spacious Expanded Card Popover Revealed on Hover Centered in Place -->
-                    <div class="unit-expanded-popover hidden p-4 flex-col items-center text-center shadow-2xl" dir="rtl">
+                    <div class="unit-expanded-popover p-4 flex-col items-center text-center shadow-2xl" 
+                         style="border: 2px solid #fb7185; box-shadow: 0 20px 45px -10px rgba(244, 63, 94, 0.5), 0 0 16px rgba(244, 63, 94, 0.5);" 
+                         dir="rtl">
                         <div class="flex items-center gap-1.5 mb-1.5">
-                            <span class="w-2 h-2 rounded-full" style="background: #fb7185;"></span>
+                            <span class="w-2.5 h-2.5 rounded-full" style="background: #fb7185;"></span>
                             <span class="text-xs font-black text-indigo-950">יחידה 5 • גבולות ורציפות</span>
                         </div>
-                        <p class="text-[11px] text-slate-700 leading-relaxed mb-3 font-medium">גבולות של פונקציות בשני משתנים ויותר f(x,y). נלמד איך להוכיח שגבול אינו קיים באמצעות מסלולים שונים, ואיך לחשב גבולות שכן קיימים בעזרת קואורדינטות קוטביות וכלל הסנדוויץ, לצד משפט ויירשטראס לקיצון בקבוצה קומפקטית.</p>
-                        <span class="text-[11px] font-bold px-3 py-1 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white shadow-xs transition-colors">
-                            לחצו לכניסה ליחידה ←
+                        <p class="text-[11.5px] text-slate-700 leading-relaxed mb-3 font-medium">גבולות של פונקציות בשני משתנים ויותר f(x,y). נלמד איך להוכיח שגבול אינו קיים באמצעות מסלולים שונים, ואיך לחשב גבולות שכן קיימים בעזרת קואורדינטות קוטביות וכלל הסנדוויץ, לצד משפט ויירשטראס לקיצון בקבוצה קומפקטית.</p>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-[11px] font-bold text-white shadow-xs transition-transform hover:scale-105" 
+                              style="background: linear-gradient(135deg, #fb7185, #f43f5e);">
+                            <span>לחצו לכניסה ליחידה</span>
+                            <i class="fa-solid fa-arrow-left text-[10px]"></i>
                         </span>
                     </div>
                 </a>
@@ -591,14 +690,18 @@
                     <span class="font-caveat font-bold text-3xl sm:text-4xl text-slate-900 select-none relative z-10">6</span>
 
                     <!-- Spacious Expanded Card Popover Revealed on Hover Centered in Place -->
-                    <div class="unit-expanded-popover hidden p-4 flex-col items-center text-center shadow-2xl" dir="rtl">
+                    <div class="unit-expanded-popover p-4 flex-col items-center text-center shadow-2xl" 
+                         style="border: 2px solid #fbbf24; box-shadow: 0 20px 45px -10px rgba(245, 158, 11, 0.5), 0 0 16px rgba(245, 158, 11, 0.5);" 
+                         dir="rtl">
                         <div class="flex items-center gap-1.5 mb-1.5">
-                            <span class="w-2 h-2 rounded-full" style="background: #fbbf24;"></span>
+                            <span class="w-2.5 h-2.5 rounded-full" style="background: #fbbf24;"></span>
                             <span class="text-xs font-black text-indigo-950">יחידה 6 • נגזרות חלקיות</span>
                         </div>
-                        <p class="text-[11px] text-slate-700 leading-relaxed mb-3 font-medium">איך פונקציה רב-ממדית משתנה בכל כיוון. נגזרות חלקיות fx ו-fy, הגדרת הדיפרנציאביליות, בניית משוואת המישור המשיק, חישוב הגרדיאנט והנגזרת הכיוונית, כלל השרשרת הרב-ממדי, ושוויון נגזרות מעורבות לפי משפט שוורץ.</p>
-                        <span class="text-[11px] font-bold px-3 py-1 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white shadow-xs transition-colors">
-                            לחצו לכניסה ליחידה ←
+                        <p class="text-[11.5px] text-slate-700 leading-relaxed mb-3 font-medium">איך פונקציה רב-ממדית משתנה בכל כיוון. נגזרות חלקיות fx ו-fy, הגדרת הדיפרנציאביליות, בניית משוואת המישור המשיק, חישוב הגרדיאנט והנגזרת הכיוונית, כלל השרשרת הרב-ממדי, ושוויון נגזרות מעורבות לפי משפט שוורץ.</p>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-[11px] font-bold text-white shadow-xs transition-transform hover:scale-105" 
+                              style="background: linear-gradient(135deg, #fbbf24, #f59e0b);">
+                            <span>לחצו לכניסה ליחידה</span>
+                            <i class="fa-solid fa-arrow-left text-[10px]"></i>
                         </span>
                     </div>
                 </a>
@@ -622,14 +725,18 @@
                     <span class="font-caveat font-bold text-3xl sm:text-4xl text-slate-900 select-none relative z-10">7</span>
 
                     <!-- Spacious Expanded Card Popover Revealed on Hover Centered in Place -->
-                    <div class="unit-expanded-popover hidden p-4 flex-col items-center text-center shadow-2xl" dir="rtl">
+                    <div class="unit-expanded-popover p-4 flex-col items-center text-center shadow-2xl" 
+                         style="border: 2px solid #f87171; box-shadow: 0 20px 45px -10px rgba(239, 68, 68, 0.5), 0 0 16px rgba(239, 68, 68, 0.5);" 
+                         dir="rtl">
                         <div class="flex items-center gap-1.5 mb-1.5">
-                            <span class="w-2 h-2 rounded-full" style="background: #f87171;"></span>
+                            <span class="w-2.5 h-2.5 rounded-full" style="background: #f87171;"></span>
                             <span class="text-xs font-black text-indigo-950">יחידה 7 • פונקציות סתומות</span>
                         </div>
-                        <p class="text-[11px] text-slate-700 leading-relaxed mb-3 font-medium">משפט הפונקציה הסתומה לגזירה ללא בידוד המשתנה, איתור וסיווג נקודות קיצון מקומיות בעזרת מטריצת הסיאן, ופתרון בעיות אופטימיזציה מורכבות תחת אילוצים באמצעות שיטת כופלי לגראנז.</p>
-                        <span class="text-[11px] font-bold px-3 py-1 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white shadow-xs transition-colors">
-                            לחצו לכניסה ליחידה ←
+                        <p class="text-[11.5px] text-slate-700 leading-relaxed mb-3 font-medium">משפט הפונקציה הסתומה לגזירה ללא בידוד המשתנה, איתור וסיווג נקודות קיצון מקומיות בעזרת מטריצת הסיאן, ופתרון בעיות אופטימיזציה מורכבות תחת אילוצים באמצעות שיטת כופלי לגראנז.</p>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-[11px] font-bold text-white shadow-xs transition-transform hover:scale-105" 
+                              style="background: linear-gradient(135deg, #f87171, #ef4444);">
+                            <span>לחצו לכניסה ליחידה</span>
+                            <i class="fa-solid fa-arrow-left text-[10px]"></i>
                         </span>
                     </div>
                 </a>
@@ -667,14 +774,18 @@
                     
                     <span class="font-caveat font-bold text-2xl sm:text-3xl text-slate-900 select-none relative z-10">X<sub>m</sub></span>
 
-                    <div class="unit-expanded-popover hidden p-4 flex-col items-center text-center shadow-2xl" dir="rtl">
+                    <div class="unit-expanded-popover p-4 flex-col items-center text-center shadow-2xl" 
+                         style="border: 2px solid #818cf8; box-shadow: 0 20px 45px -10px rgba(99, 102, 241, 0.5), 0 0 16px rgba(99, 102, 241, 0.5);" 
+                         dir="rtl">
                         <div class="flex items-center gap-1.5 mb-1.5">
-                            <span class="w-2 h-2 rounded-full" style="background: #818cf8;"></span>
+                            <span class="w-2.5 h-2.5 rounded-full" style="background: #818cf8;"></span>
                             <span class="text-xs font-black text-indigo-950">מאגר בחינות</span>
                         </div>
-                        <p class="text-[11px] text-slate-700 leading-relaxed mb-3 font-medium">מאגר מבחני עבר רשמיים פתורים של אינפי 2 עם פתרונות מלאים ומפורטים, הסברים צעד-אחר-צעד, וטיפים קריטיים להצלחה במבחן.</p>
-                        <span class="text-[11px] font-bold px-3 py-1 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white shadow-xs transition-colors">
-                            כניסה למשאב ←
+                        <p class="text-[11.5px] text-slate-700 leading-relaxed mb-3 font-medium">מאגר מבחני עבר רשמיים פתורים של אינפי 2 עם פתרונות מלאים ומפורטים, הסברים צעד-אחר-צעד, וטיפים קריטיים להצלחה במבחן.</p>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-[11px] font-bold text-white shadow-xs transition-transform hover:scale-105" 
+                              style="background: linear-gradient(135deg, #818cf8, #4f46e5);">
+                            <span>כניסה למשאב</span>
+                            <i class="fa-solid fa-arrow-left text-[10px]"></i>
                         </span>
                     </div>
                 </a>
@@ -695,14 +806,18 @@
                     
                     <span class="font-caveat font-bold text-2xl sm:text-3xl text-slate-900 select-none relative z-10">G<sub>m</sub></span>
 
-                    <div class="unit-expanded-popover hidden p-4 flex-col items-center text-center shadow-2xl" dir="rtl">
+                    <div class="unit-expanded-popover p-4 flex-col items-center text-center shadow-2xl" 
+                         style="border: 2px solid #34d399; box-shadow: 0 20px 45px -10px rgba(16, 185, 129, 0.5), 0 0 16px rgba(16, 185, 129, 0.5);" 
+                         dir="rtl">
                         <div class="flex items-center gap-1.5 mb-1.5">
-                            <span class="w-2 h-2 rounded-full" style="background: #34d399;"></span>
+                            <span class="w-2.5 h-2.5 rounded-full" style="background: #34d399;"></span>
                             <span class="text-xs font-black text-indigo-950">משחק תרגול</span>
                         </div>
-                        <p class="text-[11px] text-slate-700 leading-relaxed mb-3 font-medium">משחק אתגר הטירוף של אינפי 2: תרגול אינטראקטיבי דינמי בזמן אמת, צבירת ניקוד, שאלות מושגיות מהירות ומעקב התקדמות חי.</p>
-                        <span class="text-[11px] font-bold px-3 py-1 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white shadow-xs transition-colors">
-                            כניסה למשאב ←
+                        <p class="text-[11.5px] text-slate-700 leading-relaxed mb-3 font-medium">משחק אתגר הטירוף של אינפי 2: תרגול אינטראקטיבי דינמי בזמן אמת, צבירת ניקוד, שאלות מושגיות מהירות ומעקב התקדמות חי.</p>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-[11px] font-bold text-white shadow-xs transition-transform hover:scale-105" 
+                              style="background: linear-gradient(135deg, #34d399, #059669);">
+                            <span>כניסה למשאב</span>
+                            <i class="fa-solid fa-arrow-left text-[10px]"></i>
                         </span>
                     </div>
                 </a>
@@ -723,14 +838,18 @@
                     
                     <span class="font-caveat font-bold text-2xl sm:text-3xl text-slate-900 select-none relative z-10">S<sub>m</sub></span>
 
-                    <div class="unit-expanded-popover hidden p-4 flex-col items-center text-center shadow-2xl" dir="rtl">
+                    <div class="unit-expanded-popover p-4 flex-col items-center text-center shadow-2xl" 
+                         style="border: 2px solid #38bdf8; box-shadow: 0 20px 45px -10px rgba(56, 189, 248, 0.5), 0 0 16px rgba(56, 189, 248, 0.5);" 
+                         dir="rtl">
                         <div class="flex items-center gap-1.5 mb-1.5">
-                            <span class="w-2 h-2 rounded-full" style="background: #38bdf8;"></span>
+                            <span class="w-2.5 h-2.5 rounded-full" style="background: #38bdf8;"></span>
                             <span class="text-xs font-black text-indigo-950">סיכומי עזר</span>
                         </div>
-                        <p class="text-[11px] text-slate-700 leading-relaxed mb-3 font-medium">סיכומי קורס מתומצתים וממוקדים, דפי נוסחאות מרוכזים ורשימת משפטי מפתח לשינון מהיר לקראת המבחן הסופי.</p>
-                        <span class="text-[11px] font-bold px-3 py-1 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white shadow-xs transition-colors">
-                            כניסה למשאב ←
+                        <p class="text-[11.5px] text-slate-700 leading-relaxed mb-3 font-medium">סיכומי קורס מתומצתים וממוקדים, דפי נוסחאות מרוכזים ורשימת משפטי מפתח לשינון מהיר לקראת המבחן הסופי.</p>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-[11px] font-bold text-white shadow-xs transition-transform hover:scale-105" 
+                              style="background: linear-gradient(135deg, #38bdf8, #0284c7);">
+                            <span>כניסה למשאב</span>
+                            <i class="fa-solid fa-arrow-left text-[10px]"></i>
                         </span>
                     </div>
                 </a>
@@ -891,43 +1010,61 @@
         </section>
 
         <!-- ============================================================
-             PART 4: FOOTER (EXACT MATCH TO LINEAR 1 DESIGN)
+             PART 4: FOOTER (TRANSLUCENT WHITE CARD 75% OPACITY FOR 100% LEGIBILITY)
              ============================================================ -->
-        <footer class="bg-transparent pb-6 relative z-30 mt-auto w-full">
-            <div class="flex flex-col items-center">
-
-                <!-- Social & Contact Buttons (WhatsApp & LinkedIn) -->
-                <div class="flex justify-center items-center gap-5 mb-3">
+        <footer class="bg-transparent pb-8 relative z-30 mt-auto w-full flex flex-col items-center">
+            
+            <!-- Enclosed 75% Translucent Glassmorphic Card -->
+            <div class="w-full max-w-2xl bg-white/75 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-white/80 shadow-md flex flex-col items-center text-center mx-auto mb-4" dir="rtl">
+                
+                <!-- Floating WhatsApp & LinkedIn Icon Buttons -->
+                <div class="flex justify-center items-center gap-4 mb-3.5" dir="ltr">
                     <!-- WhatsApp -->
                     <a href="https://wa.me/972586736525" target="_blank" rel="noopener noreferrer" title="WhatsApp"
-                        class="w-12 h-12 bg-white/70 backdrop-blur-md rounded-2xl flex items-center justify-center shadow-xs border border-white hover:border-green-400 hover:bg-green-500/20 hover:scale-105 transition-all duration-300 text-slate-700">
-                        <svg class="w-5 h-5 hover:text-green-500 transition-colors" fill="currentColor" viewBox="0 0 448 512">
+                        class="w-12 h-12 bg-white/90 backdrop-blur-md rounded-2xl flex items-center justify-center shadow-xs border border-white hover:border-green-400 hover:bg-green-500/20 hover:scale-105 transition-all duration-300 text-slate-700">
+                        <svg class="w-5 h-5 text-green-600 transition-colors" fill="currentColor" viewBox="0 0 448 512">
                             <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
                         </svg>
                     </a>
 
                     <!-- LinkedIn -->
                     <a href="https://linkedin.com/in/yair-kurtzman-382417247" target="_blank" rel="noopener noreferrer" title="LinkedIn"
-                        class="w-12 h-12 bg-white/70 backdrop-blur-md rounded-2xl flex items-center justify-center shadow-xs border border-white hover:border-sky-400 hover:bg-sky-500/20 hover:scale-105 transition-all duration-300 text-slate-700">
-                        <svg class="w-5 h-5 hover:text-sky-600 transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                        class="w-12 h-12 bg-white/90 backdrop-blur-md rounded-2xl flex items-center justify-center shadow-xs border border-white hover:border-sky-400 hover:bg-sky-500/20 hover:scale-105 transition-all duration-300 text-slate-700">
+                        <svg class="w-5 h-5 text-sky-600 transition-colors" fill="currentColor" viewBox="0 0 24 24">
                             <path fill-rule="evenodd" d="M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-1.61 1.61h-.022A1.61 1.61 0 0 1 3.96 6.106a1.61 1.61 0 1 1 3.24 0ZM7.18 19.5H4V8.796h3.18V19.5Z" clip-rule="evenodd" />
                         </svg>
                     </a>
                 </div>
 
-                <!-- Personal Statement & Copyright from linearit image -->
-                <div class="max-w-2xl text-center px-4" dir="rtl">
-                    <p class="text-slate-800 text-sm sm:text-base font-bold mb-1">
-                        🎓 !למידה מהנה ובהצלחה רבה במבחן
-                    </p>
-                    <p class="text-slate-700 text-xs sm:text-sm font-semibold mb-2 leading-relaxed">
-                        האתר עוצב ונבנה כדי להפוך את מושגי החשבון האינפיניטסימלי לאינטואיטיביים, מוחשיים ונהירים.
-                    </p>
-                    <p class="text-slate-500 text-[11px] font-medium">
-                        © כל הזכויות על חומרי הלימוד והבחינות שמורות לאוניברסיטה הפתוחה ולמחברי הסיכומים
-                    </p>
+                <p class="text-slate-800 text-base sm:text-lg font-bold mb-1.5">
+                    🎓 !למידה מהנה ובהצלחה רבה במבחן
+                </p>
+                <p class="text-slate-700 text-xs sm:text-sm font-medium mb-3 max-w-xl leading-relaxed">
+                    התוכן של האתר נערך ונסקר מכל הכיוונים על ידי, אבל עדיין האתר נבנה בעזרת בינה מלאכותית ולכן ייתכנו טעויות, אשמח לעדכון אם מצאתם על מנת שאוכל לתקן.
+                </p>
+                <p class="text-slate-500 text-[11px] font-medium">
+                    © כל הזכויות על המבחנים וחומרי הלימוד שמורות לאוניברסיטה הפתוחה ולמחברי הסיכומים
+                </p>
+            </div>
+
+            <!-- Bottom Credit Bar (Exact Match to Linear 1) -->
+            <div class="w-full max-w-2xl px-4 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-600 gap-2 font-medium" dir="rtl">
+                <div>
+                    חשבון אינפיניטסימלי 2 (20475) • האוניברסיטה הפתוחה
+                </div>
+                <div class="flex items-center gap-3" dir="ltr">
+                    <a href="https://wa.me/972586736525" target="_blank" rel="noopener noreferrer" class="hover:text-green-600 flex items-center gap-1 transition-colors">
+                        <span>WhatsApp</span>
+                        <i class="fa-brands fa-whatsapp text-green-600"></i>
+                    </a>
+                    <span>•</span>
+                    <a href="https://linkedin.com/in/yair-kurtzman-382417247" target="_blank" rel="noopener noreferrer" class="hover:text-sky-600 flex items-center gap-1 transition-colors">
+                        <span>LinkedIn</span>
+                        <i class="fa-brands fa-linkedin text-sky-600"></i>
+                    </a>
                 </div>
             </div>
+
         </footer>
 
     </div>
