@@ -550,165 +550,94 @@ const finalHtml = `<!DOCTYPE html>
                 קורס חשבון אינפיניטסימלי 2 מהווה את שער הכניסה לאנליזה מתקדמת: מאינטגרלים לא אמיתיים והתכנסות במידה שווה של סדרות וטורי פונקציות, ועד לגבולות כפולים, נגזרות חלקיות, פונקציות סתומות וקיצון תחת אילוצים במרחב הרב-ממדי.
             </p>
 
-            <!-- Interactive Academic Learning Guide Card (Compact at rest, smoothly expands on hover or click) -->
-            <div id="site-guide-card" 
-                 class="site-guide-interactive-card w-full max-w-3xl bg-slate-50/70 hover:bg-slate-50/95 rounded-2xl p-4 sm:p-5 border border-indigo-100/80 hover:border-indigo-200 shadow-2xs hover:shadow-md transition-all duration-300 text-right mt-1 cursor-pointer group" 
-                 onclick="toggleGuideCard(event)"
-                 dir="rtl">
-                
-                <!-- Resting Header & Compact Summary (Always visible in resting state) -->
-                <div class="flex items-center justify-between gap-3">
-                    <div class="flex items-center gap-3">
-                        <span class="w-9 h-9 rounded-xl bg-indigo-100/80 flex items-center justify-center text-indigo-700 text-base shadow-2xs shrink-0">
-                            💡
-                        </span>
-                        <div>
-                            <div class="flex items-center gap-2">
-                                <h3 class="text-sm sm:text-base font-black text-indigo-950 leading-tight">
-                                    מדריך הלמידה: מבנה הפרקים ומשאבי ההצלחה בקורס
-                                </h3>
-                                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 hidden sm:inline-block">
-                                    3 מצבי למידה מובנים
-                                </span>
+            <!-- Accordion Button (Exact Match to Linear 1/2 Design: media_1794401814514_1219de03.png) -->
+            <button type="button" id="why-course-toggle" onclick="toggleWhyAccordion()"
+                    class="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-bold text-sky-700 hover:text-sky-900 bg-sky-50/90 hover:bg-sky-100/90 border border-sky-200/80 px-3 py-1 rounded-xl transition-all shadow-xs cursor-pointer">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-500"></i>
+                <span>למה צריך אתר לקורס? לחצו להסבר</span>
+                <i id="accordion-arrow" data-lucide="chevron-down"
+                   class="w-3.5 h-3.5 transition-transform duration-300"></i>
+            </button>
+
+            <!-- Expandable Accordion Content (Exact 5-Box Grid from media_1794401812313_963a977e.jpg Adapted for Infi 2) -->
+            <div id="why-course-card"
+                 class="max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out text-right w-full max-w-3xl">
+                <div class="mt-4 pt-4 border-t border-slate-200/90 text-xs text-slate-700 leading-relaxed space-y-3.5" dir="rtl">
+                    
+                    <!-- Hero Inspiration Banner (Adapted for Infi 2) -->
+                    <div class="p-3.5 bg-gradient-to-l from-amber-500/10 via-sky-500/10 to-indigo-500/10 rounded-2xl border border-amber-200/80 shadow-2xs">
+                        <div class="flex items-center gap-2 mb-1.5">
+                            <span class="text-lg">👁️</span>
+                            <h3 class="font-black text-slate-900 text-sm">
+                                ראייה מול העיניים וויזואליזציה מרחבית באינפי 2
+                            </h3>
+                        </div>
+                        <p class="text-[12px] text-slate-700 leading-relaxed">
+                            חשבון אינפיניטסימלי 2 באוניברסיטה נלמד לעיתים קרובות כאוסף חישובים טכניים נוקשים: מבחני התכנסות ארוכים, חילוק פולינומים, גזירה חלקית מסורבלת וסימונים אלגבריים כבדים.
+                            אך המתמטיקה האמיתית שמאחורי הנוסחאות היא <strong>גאומטרית, דינמית וויזואלית לחלוטין</strong>!
+                            אינטגרל לא אמיתי הוא שטח אינסופי עם מסה סופית; התכנסות במידה שווה (במ"ש) היא שרוול סביב פונקציית הגבול שלוכד את כל סדרת הפונקציות יחד;
+                            רדיוס ההתכנסות של טור חזקות הוא מעגל ההשפעה שבו הפונקציה נולדת מחדש כפולינום אינסופי;
+                            ובמרחב הרב-ממדי, הגרדיאנט מצביע לכיוון העלייה התלולה ביותר והמישור המשיק עוטף את המשטח המעוקל.
+                            <strong>כאשר רואים את הדברים מול העיניים, כל המשפטים וההגדרות הופכים לטבעיים, הגיוניים ובלתי נשכחים.</strong>
+                        </p>
+                    </div>
+
+                    <!-- 4 Core Pillars Grid (2x2 Grid Exact Match to Linear 1/2) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 pt-1 text-[11.5px]">
+                        
+                        <!-- Pillar 1: 3 Study Modes -->
+                        <div class="p-3 bg-white/90 rounded-2xl border border-sky-200 shadow-2xs hover:shadow-xs transition-shadow">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="text-base">🎛️</span>
+                                <span class="font-black text-sky-900 text-xs">שלושת מצבי הלימוד הייחודיים (לכל סגנון ושלב)</span>
                             </div>
-                            <p class="text-[11.5px] text-slate-600 font-medium mt-0.5">
-                                הסבר קצר על האתר: העבירו את העכבר או לחצו לפירוט מלא על 3 מצבי הלמידה, הסימולציות, המשאבים ודרכי יצירת קשר ✨
+                            <ul class="space-y-1 text-slate-600 list-disc list-inside pr-1 text-[11px]">
+                                <li><strong>🏛️ מצב פורמלי:</strong> ניסוחים אקדמיים מדויקים, הגדרות מלאות, משפטים והוכחות ריגורוזיות להצלחה במבחן.</li>
+                                <li><strong>📖 בגובה העיניים:</strong> הסברים אינטואיטיביים, שפה ישירה ונגישה, אנלוגיות וגרפים המפשטים כל מושג.</li>
+                                <li><strong>⚡ משפטים נטו:</strong> תמצית מרוכזת של כל הטענות, המשפטים והלמות ללא רעש רקע — אידיאלי לחזרה מהירה.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Pillar 2: Simulation Lab & Circular Orb -->
+                        <div class="p-3 bg-white/90 rounded-2xl border border-amber-200 shadow-2xs hover:shadow-xs transition-shadow">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="text-base">🔮</span>
+                                <span class="font-black text-amber-900 text-xs">הכפתור המעגלי המרחף ומעבדת הסימולציות</span>
+                            </div>
+                            <p class="text-slate-600 text-[11px] leading-relaxed">
+                                בכל פרקי הלימוד מוצב <strong>כפתור מעגלי זוהר (Floating Orb)</strong> שלחיצה עליו מזניקה מעבדת סימולציות אינטראקטיבית.
+                                במעבדה ניתן להזיז פרמטרים ומחוונים ביד, לצפות בתנועת סדרות פונקציות, לחקור רדיוסי התכנסות של טורי חזקות, ולסובב משטחים תלת-ממדיים במרחב האוקלידי בזמן אמת.
                             </p>
                         </div>
-                    </div>
-                    <div class="flex items-center gap-1.5 text-indigo-600 text-xs font-bold shrink-0">
-                        <span class="hidden md:inline text-[11px] text-indigo-700">לחצו או רחפו להרחבה</span>
-                        <i class="fa-solid fa-chevron-down guide-expand-indicator text-xs transition-transform duration-300"></i>
+
+                        <!-- Pillar 3: Single-Screen Course Summary -->
+                        <div class="p-3 bg-white/90 rounded-2xl border border-emerald-200 shadow-2xs hover:shadow-xs transition-shadow">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="text-base">📋</span>
+                                <span class="font-black text-emerald-900 text-xs">סיכום הקורס על מסך אחד ו-20 אלגוריתמים</span>
+                            </div>
+                            <p class="text-slate-600 text-[11px] leading-relaxed">
+                                דף סיכום קורס מקיף המציג את תמונת-העל של כל החומר ממעוף הציפור: טבלת 20 אלגוריתמים מעשיים לפתרון שאלות מבחן, מפת קשרים מוחית,
+                                וריכוז כל משפטי המפתח שמחברים בין אינטגרלים, טורים, גבולות כפולים וגזירה חלקית במרחב הרב-ממדי.
+                            </p>
+                        </div>
+
+                        <!-- Pillar 4: Exams Archive & Gamified Arena -->
+                        <div class="p-3 bg-white/90 rounded-2xl border border-indigo-200 shadow-2xs hover:shadow-xs transition-shadow">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="text-base">🎯</span>
+                                <span class="font-black text-indigo-900 text-xs">מאגר בחינות מקיף וזירת המשחק האינטראקטיבית</span>
+                            </div>
+                            <p class="text-slate-600 text-[11px] leading-relaxed">
+                                מאגר בחינות עשיר ומעודכן הכולל עשרות מבחני עבר רשמיים עם פתרונות מודרכים ומלאים,
+                                לצד <strong>זירת משחק תחרותית ומאתגרת</strong>: זיהוי משפטים ומבחני התכנסות תחת לחץ זמן, שאלות טריוויה חדות, אימון אינטואיציה ויזואלית וחידוד מהירות המחשבה — שילוב מנצח להטמעת החומר והבטחת ציון מקסימלי.
+                            </p>
+                        </div>
+
                     </div>
                 </div>
-
-                <!-- Expandable Deep Content (Revealed smoothly on hover or click) -->
-                <div class="guide-expandable-content border-t border-indigo-100/80 pt-4 space-y-4 text-right">
-                    
-                    <!-- 1. The 3 Distinct Learning Modes across all 7 units -->
-                    <div>
-                        <div class="flex items-center gap-1.5 mb-2.5">
-                            <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
-                            <span class="font-black text-xs sm:text-sm text-indigo-950">שלושת מצבי הלמידה המובנים בכל אחד מ-7 פרקי הקורס:</span>
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                            <!-- Mode 1: בגובה העיניים -->
-                            <div class="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs flex flex-col justify-start">
-                                <div class="flex items-center gap-1.5 mb-1.5 text-sky-700 font-bold text-xs">
-                                    <i class="fa-regular fa-eye"></i>
-                                    <span>1. מצב בגובה העיניים</span>
-                                </div>
-                                <p class="text-[11px] text-slate-600 leading-relaxed font-medium">
-                                    <strong>אינטואיציה ויזואלית ומבוא מושגי:</strong> הסברים פשוטים, שפה ישירה ודוגמאות מוחשיות שמפרקות כל מושג מופשט לגורמים (התכנסות במ"ש מול נקודתית, טורי חזקות, המרחב האוקלידי, גבולות כפולים ונגזרות חלקיות) ללא שפה מכבידה לפני שנכנסים לפורמליזם.
-                                </p>
-                            </div>
-
-                            <!-- Mode 2: מצב משפטי -->
-                            <div class="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs flex flex-col justify-start">
-                                <div class="flex items-center gap-1.5 mb-1.5 text-indigo-700 font-bold text-xs">
-                                    <i class="fa-solid fa-scale-balanced"></i>
-                                    <span>2. מצב משפטי</span>
-                                </div>
-                                <p class="text-[11px] text-slate-600 leading-relaxed font-medium">
-                                    <strong>תנאי משפטים, דקויות ומלכודות:</strong> ניתוח קפדני של תנאי המשפטים ב-7 פרקי הקורס (משפט דיני, מבחן M של ויירשטראס, משפט שוורץ, פונקציה סתומה וכופלי לגראנז'), הבדלה בין תנאי הכרחי למספיק, דקויות הגדרה ומלכודות בחינה נפוצות.
-                                </p>
-                            </div>
-
-                            <!-- Mode 3: מצב פורמלי -->
-                            <div class="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs flex flex-col justify-start">
-                                <div class="flex items-center gap-1.5 mb-1.5 text-purple-700 font-bold text-xs">
-                                    <i class="fa-solid fa-square-root-variable"></i>
-                                    <span>3. מצב פורמלי</span>
-                                </div>
-                                <p class="text-[11px] text-slate-600 leading-relaxed font-medium">
-                                    <strong>הוכחות מתמטיות ופתרון מבחן:</strong> כתיבה מתמטית מדויקת לפי הסטנדרט האקדמי המחמיר של האוניברסיטה הפתוחה: הוכחות משפטים מלאות שלב-אחר-שלב, וניסוח מלא ומנומק של תרגילי חישוב להבטחת 100% מהנקודות בבחינה.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2. Interactive Simulations & Success Resources -->
-                    <div>
-                        <div class="flex items-center gap-1.5 mb-2.5">
-                            <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
-                            <span class="font-black text-xs sm:text-sm text-indigo-950">סימולציות חיות ומשאבי ההצלחה בבחינה:</span>
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-4 gap-2.5">
-                            <!-- סימולציות חיות -->
-                            <div class="p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs flex flex-col justify-start">
-                                <div class="flex items-center gap-1.5 mb-1 text-emerald-700 font-bold text-xs">
-                                    <i class="fa-solid fa-chart-line"></i>
-                                    <span>סימולציות חיות</span>
-                                </div>
-                                <p class="text-[11px] text-slate-600 leading-relaxed font-medium">
-                                    הדמיות ויזואליות דינמיות בכל אחד מ-7 הפרקים להמחשת התכנסות סדרות וטורי פונקציות, רדיוס התכנסות, ומשטחים תלת-ממדיים.
-                                </p>
-                            </div>
-
-                            <!-- משחק תרגול -->
-                            <a href="game.html" class="p-2.5 rounded-xl bg-white hover:bg-emerald-50/60 border border-slate-200/80 hover:border-emerald-300 shadow-2xs flex flex-col justify-start transition-all group/res text-decoration-none">
-                                <div class="flex items-center gap-1.5 mb-1 text-emerald-700 font-bold text-xs">
-                                    <i class="fa-solid fa-gamepad group-hover/res:scale-110 transition-transform"></i>
-                                    <span>משחק תרגול (G<sub>m</sub>)</span>
-                                </div>
-                                <p class="text-[11px] text-slate-600 leading-relaxed font-medium">
-                                    אימון אקטיבי אינטראקטיבי בזמן אמת לשאלות קונספטואליות, זיהוי מבחנים ומעקב התקדמות חי.
-                                </p>
-                            </a>
-
-                            <!-- מאגר בחינות -->
-                            <a href="exams.html" class="p-2.5 rounded-xl bg-white hover:bg-indigo-50/60 border border-slate-200/80 hover:border-indigo-300 shadow-2xs flex flex-col justify-start transition-all group/res text-decoration-none">
-                                <div class="flex items-center gap-1.5 mb-1 text-indigo-700 font-bold text-xs">
-                                    <i class="fa-solid fa-award group-hover/res:scale-110 transition-transform"></i>
-                                    <span>מאגר בחינות (X<sub>m</sub>)</span>
-                                </div>
-                                <p class="text-[11px] text-slate-600 leading-relaxed font-medium">
-                                    כל בחינות העבר הרשמיות של האוניברסיטה הפתוחה פתורות ומנותחות ב-100% (dx=100).
-                                </p>
-                            </a>
-
-                            <!-- סיכומי עזר -->
-                            <a href="summary.html" class="p-2.5 rounded-xl bg-white hover:bg-sky-50/60 border border-slate-200/80 hover:border-sky-300 shadow-2xs flex flex-col justify-start transition-all group/res text-decoration-none">
-                                <div class="flex items-center gap-1.5 mb-1 text-sky-700 font-bold text-xs">
-                                    <i class="fa-solid fa-book-bookmark group-hover/res:scale-110 transition-transform"></i>
-                                    <span>סיכומי עזר (S<sub>m</sub>)</span>
-                                </div>
-                                <p class="text-[11px] text-slate-600 leading-relaxed font-medium">
-                                    דפי נוסחאות מרוכזים ורשימת משפטי מפתח לשינון מהיר וממוקד לקראת המבחן.
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- 3. Contact & Email Explanation -->
-                    <div class="p-3 rounded-xl bg-indigo-50/70 border border-indigo-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-right">
-                        <div class="flex items-start gap-2.5">
-                            <span class="text-base text-indigo-600 shrink-0 mt-0.5">✉️</span>
-                            <div>
-                                <span class="text-xs font-bold text-indigo-950 block">פניות, דיווח על טעויות והצעות לשיפור:</span>
-                                <p class="text-[11px] text-slate-600 leading-relaxed font-medium">
-                                    מצאתם טעות מתמטית? שאלה לגבי פתרון? שלחו עדכון ישיר באימייל או בוואטסאפ ונתקן מיד לטובת כלל הסטודנטים.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-2 shrink-0" dir="ltr">
-                            <a href="mailto:yairkurtzman@gmail.com" 
-                               class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-indigo-600 hover:text-white text-indigo-700 text-xs font-bold border border-indigo-200 shadow-2xs transition-all">
-                                <i class="fa-regular fa-envelope"></i>
-                                <span>Email</span>
-                            </a>
-                            <a href="https://wa.me/972586736525" target="_blank" rel="noopener noreferrer" 
-                               class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-green-600 hover:text-white text-green-700 text-xs font-bold border border-green-200 shadow-2xs transition-all">
-                                <i class="fa-brands fa-whatsapp text-green-600"></i>
-                                <span>WhatsApp</span>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-
             </div>
-
+            
         </header>
 
         <!-- ============================================================
@@ -936,40 +865,34 @@ const finalHtml = `<!DOCTYPE html>
         </section>
 
         <!-- ============================================================
-             PART 4: FOOTER (LARGELY TRANSPARENT WITH JUST A DELICATE FROSTED MIST)
+             PART 4: FOOTER (LARGELY TRANSPARENT, WHISPER OF FROSTED MIST, WHATSAPP & LINKEDIN ONLY)
              ============================================================ -->
         <footer class="bg-transparent pb-8 relative z-30 mt-auto w-full flex flex-col items-center">
             
             <!-- Delicate Frosted Card (Very transparent, whisper of blur, 100% legible) -->
             <div class="w-full max-w-2xl bg-white/15 backdrop-blur-[2px] rounded-3xl p-5 sm:p-6 border border-white/30 shadow-none flex flex-col items-center text-center mx-auto mb-3" dir="rtl">
                 
-                <!-- Floating WhatsApp, LinkedIn, and Email Icon Buttons -->
-                <div class="flex justify-center items-center gap-3.5 mb-3" dir="ltr">
-                    <!-- WhatsApp -->
-                    <a href="https://wa.me/972586736525" target="_blank" rel="noopener noreferrer" title="WhatsApp"
-                        class="w-11 h-11 bg-white/30 hover:bg-green-500/20 backdrop-blur-xs rounded-2xl flex items-center justify-center shadow-none border border-white/40 hover:border-green-400 hover:scale-105 transition-all duration-300 text-slate-700">
-                        <svg class="w-5 h-5 text-green-600 transition-colors" fill="currentColor" viewBox="0 0 448 512">
-                            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
-                        </svg>
-                    </a>
-
+                <!-- Social & Contact Buttons (LinkedIn & WhatsApp ONLY - Exact Match to Linear 1) -->
+                <div class="flex justify-center items-center gap-4 mb-3" dir="ltr">
                     <!-- LinkedIn -->
                     <a href="https://linkedin.com/in/yair-kurtzman-382417247" target="_blank" rel="noopener noreferrer" title="LinkedIn"
-                        class="w-11 h-11 bg-white/30 hover:bg-sky-500/20 backdrop-blur-xs rounded-2xl flex items-center justify-center shadow-none border border-white/40 hover:border-sky-400 hover:scale-105 transition-all duration-300 text-slate-700">
+                        class="w-12 h-12 bg-white/30 hover:bg-sky-500/20 backdrop-blur-xs rounded-2xl flex items-center justify-center shadow-none border border-white/40 hover:border-sky-400 hover:scale-105 transition-all duration-300 text-slate-700">
                         <svg class="w-5 h-5 text-sky-600 transition-colors" fill="currentColor" viewBox="0 0 24 24">
                             <path fill-rule="evenodd" d="M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-1.61 1.61h-.022A1.61 1.61 0 0 1 3.96 6.106a1.61 1.61 0 1 1 3.24 0ZM7.18 19.5H4V8.796h3.18V19.5Z" clip-rule="evenodd" />
                         </svg>
                     </a>
 
-                    <!-- Email -->
-                    <a href="mailto:yairkurtzman@gmail.com" title="שליחת מייל"
-                        class="w-11 h-11 bg-white/30 hover:bg-indigo-500/20 backdrop-blur-xs rounded-2xl flex items-center justify-center shadow-none border border-white/40 hover:border-indigo-400 hover:scale-105 transition-all duration-300 text-slate-700">
-                        <i class="fa-regular fa-envelope text-indigo-700 text-base"></i>
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/972586736525" target="_blank" rel="noopener noreferrer" title="WhatsApp"
+                        class="w-12 h-12 bg-white/30 hover:bg-green-500/20 backdrop-blur-xs rounded-2xl flex items-center justify-center shadow-none border border-white/40 hover:border-green-400 hover:scale-105 transition-all duration-300 text-slate-700">
+                        <svg class="w-5 h-5 text-green-600 transition-colors" fill="currentColor" viewBox="0 0 448 512">
+                            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+                        </svg>
                     </a>
                 </div>
 
                 <p class="text-slate-800 text-base sm:text-lg font-bold mb-1">
-                    🎓 !למידה מהנה ובהצלחה רבה במבחן
+                    למידה מהנה ובהצלחה רבה במבחן! 🎓
                 </p>
                 <p class="text-slate-700 text-xs sm:text-sm font-semibold mb-2.5 max-w-xl leading-relaxed">
                     התוכן של האתר נערך ונסקר מכל הכיוונים על ידי, אבל עדיין האתר נבנה בעזרת בינה מלאכותית ולכן ייתכנו טעויות, אשמח לעדכון אם מצאתם על מנת שאוכל לתקן.
@@ -993,11 +916,6 @@ const finalHtml = `<!DOCTYPE html>
                     <a href="https://linkedin.com/in/yair-kurtzman-382417247" target="_blank" rel="noopener noreferrer" class="hover:text-sky-600 flex items-center gap-1 transition-colors">
                         <span>LinkedIn</span>
                         <i class="fa-brands fa-linkedin text-sky-600"></i>
-                    </a>
-                    <span>•</span>
-                    <a href="mailto:yairkurtzman@gmail.com" class="hover:text-indigo-600 flex items-center gap-1 transition-colors">
-                        <span>Email</span>
-                        <i class="fa-regular fa-envelope text-indigo-600"></i>
                     </a>
                 </div>
             </div>
@@ -1384,16 +1302,26 @@ const finalHtml = `<!DOCTYPE html>
             }
         });
 
-        function toggleGuideCard(e) {
-            // Do not toggle if the user clicked an explicit link inside
-            if (e && e.target && e.target.closest('a')) return;
-            const card = document.getElementById('site-guide-card');
-            if (card) {
-                card.classList.toggle('is-open');
+        
+
+        // Window load listener to ensure KaTeX renders if active
+        function toggleWhyAccordion() {
+            const card = document.getElementById('why-course-card');
+            const arrow = document.getElementById('accordion-arrow');
+            if (!card) return;
+
+            const isOpen = card.classList.contains('max-h-[1400px]');
+            if (!isOpen) {
+                card.classList.remove('max-h-0', 'opacity-0');
+                card.classList.add('max-h-[1400px]', 'opacity-100');
+                if (arrow) arrow.style.transform = 'rotate(180deg)';
+            } else {
+                card.classList.remove('max-h-[1400px]', 'opacity-100');
+                card.classList.add('max-h-0', 'opacity-0');
+                if (arrow) arrow.style.transform = 'rotate(0deg)';
             }
         }
 
-        // Window load listener to ensure KaTeX renders if active
         window.addEventListener('load', () => {
             if (window.lucide) lucide.createIcons();
             const expView = document.getElementById('integral-explorer-view');
