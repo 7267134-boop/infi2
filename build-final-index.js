@@ -13,43 +13,44 @@ const units = [
         num: '1', title: 'אינטגרל לא אמיתי', shortTitle: 'אינטגרל לא אמיתי', url: '2_20475_1.html',
         ring1: '#38bdf8', ring2: '#818cf8', ring3: '#0ea5e9', glowColor: 'rgba(56, 189, 248, 0.5)', textColor: '#0284c7',
         orbitSpeed1: '4.2s', orbitSpeed2: '6.5s', animFloat: 'organic-droplet-1',
-        summary: 'אינטגרלים מוכללים מסוג ראשון (תחום אינסופי) וסוג שני (סינגולריות), מבחני השוואה ישיר וגבולי, מבחן אבל ומבחן דיריכלה.'
+        simpleDesc: 'אינטגרלים של פונקציות בקטעים אינסופיים או עם נקודות סינגולריות. נלמד מתי השטח מתחת לעקומה נשאר סופי, איך משווים לפונקציות פשוטות, ומבחני התכנסות מרכזיים (השוואה ישירה וגבולית, מבחן אבל ומבחן דיריכלה).'
     },
     {
         num: '2', title: 'סדרות פונקציות', shortTitle: 'סדרות פונקציות', url: '2_20475_2.html',
         ring1: '#818cf8', ring2: '#a78bfa', ring3: '#6366f1', glowColor: 'rgba(99, 102, 241, 0.5)', textColor: '#4338ca',
         orbitSpeed1: '4.8s', orbitSpeed2: '7s', animFloat: 'organic-droplet-2',
-        summary: 'התכנסות נקודתית מול התכנסות במידה שווה (במ"ש), מבחן הסופרמום Mn, שמירה על רציפות, אינטגרציה וגזירות.'
+        simpleDesc: 'איך מתנהגת סדרה של פונקציות כאשר האינדקס n שואף לאינסוף. נבדיל בין התכנסות נקודתית להתכנסות אחידה (במידה שווה - במ"ש), נשתמש במבחן הסופרמום Mn, ונבדוק מתי מותר להחליף סדר גבול ואינטגרל או נגזרת.'
     },
     {
         num: '3', title: 'טורי פונקציות', shortTitle: 'טורי פונקציות', url: '2_20475_3.html',
         ring1: '#34d399', ring2: '#6ee7b7', ring3: '#10b981', glowColor: 'rgba(16, 185, 129, 0.5)', textColor: '#047857',
         orbitSpeed1: '4s', orbitSpeed2: '6.2s', animFloat: 'organic-droplet-3',
-        summary: 'טורי פונקציות, מבחן M של ויירשטראס, טורי חזקות, רדיוס ותחום התכנסות R, גזירה ואינטגרציה איבר-איבר.'
+        summary: 'סכום אינסופי של פונקציות. נלמד את מבחן ה-M של ויירשטראס להתכנסות במ"ש, נחקור טורי חזקות, רדיוס ותחום התכנסות R, גזירה ואינטגרציה איבר-איבר, ואיך להציג פונקציות מוכרות כטורי טיילור ומקלורן.',
+        simpleDesc: 'סכום אינסופי של פונקציות. נלמד את מבחן ה-M של ויירשטראס להתכנסות במ"ש, נחקור טורי חזקות, רדיוס ותחום התכנסות R, גזירה ואינטגרציה איבר-איבר, ואיך להציג פונקציות מוכרות כטורי טיילור ומקלורן.'
     },
     {
         num: '4', title: 'המרחב האוקלידי', shortTitle: 'המרחב האוקלידי', url: '2_20475_4.html',
         ring1: '#c084fc', ring2: '#d8b4fe', ring3: '#a855f7', glowColor: 'rgba(168, 85, 247, 0.5)', textColor: '#7e22ce',
         orbitSpeed1: '4.5s', orbitSpeed2: '6.8s', animFloat: 'organic-droplet-1',
-        summary: 'מבנה Rn, נורמה, מכפלה פנימית, טופולוגיה של קבוצות פתוחות וסגורות, סדרות וקומפקטיות (היינה-בורל).'
+        simpleDesc: 'מעבר ממתמטיקה של משתנה יחיד למרחב של וקטורים במספר ממדים. מרחקים, נורמות, אי-שוויון קושי-שוורץ, קבוצות פתוחות, סגורות וקומפקטיות (משפט היינה-בורל), ועקומות במרחב עם חישוב וקטור מהירות ואורך קשת.'
     },
     {
         num: '5', title: 'גבולות ורציפות', shortTitle: 'גבולות ורציפות', url: '2_20475_5.html',
         ring1: '#fb7185', ring2: '#fda4af', ring3: '#f43f5e', glowColor: 'rgba(244, 63, 94, 0.5)', textColor: '#be123c',
         orbitSpeed1: '4.3s', orbitSpeed2: '6.6s', animFloat: 'organic-droplet-2',
-        summary: 'פונקציות בכמה משתנים, גבולות כפולים, גבולות חוזרים, מעבר לקואורדינטות קוטביות, רציפות ורציפות במידה שווה (קנטור).'
+        simpleDesc: 'גבולות של פונקציות בשני משתנים ויותר f(x,y). נלמד איך להוכיח שגבול אינו קיים באמצעות מסלולים שונים, ואיך לחשב גבולות שכן קיימים בעזרת קואורדינטות קוטביות וכלל הסנדוויץ, לצד משפט ויירשטראס לקיצון בקבוצה קומפקטית.'
     },
     {
         num: '6', title: 'נגזרות חלקיות', shortTitle: 'נגזרות חלקיות', url: '2_20475_6.html',
         ring1: '#fbbf24', ring2: '#fde68a', ring3: '#f59e0b', glowColor: 'rgba(245, 158, 11, 0.5)', textColor: '#b45309',
         orbitSpeed1: '4.6s', orbitSpeed2: '6.4s', animFloat: 'organic-droplet-3',
-        summary: 'נגזרות חלקיות, דיפרנציאביליות, מישור משיק, כלל השרשרת, נגזרת כיוונית, גרדיאנט, ומשפט שוורץ לשוויון נגזרות מעורבות.'
+        simpleDesc: 'איך פונקציה רב-ממדית משתנה בכל כיוון. נגזרות חלקיות fx ו-fy, הגדרת הדיפרנציאביליות, בניית משוואת המישור המשיק, חישוב הגרדיאנט והנגזרת הכיוונית, כלל השרשרת הרב-ממדי, ושוויון נגזרות מעורבות לפי משפט שוורץ.'
     },
     {
         num: '7', title: 'פונקציות סתומות', shortTitle: 'פונקציות סתומות', url: '2_20475_7.html',
         ring1: '#f87171', ring2: '#fca5a5', ring3: '#ef4444', glowColor: 'rgba(239, 68, 68, 0.5)', textColor: '#b91c1c',
         orbitSpeed1: '4.1s', orbitSpeed2: '6.3s', animFloat: 'organic-droplet-1',
-        summary: 'משפט הפונקציה הסתומה (חד-ממדי ורב-ממדי), יעקוביאן, נקודות קיצון מקומיות, מטריצת הסיאן, וקיצון תחת אילוצים עם כופלי לגראנז\'.'
+        simpleDesc: 'משפט הפונקציה הסתומה לגזירה ללא בידוד המשתנה, איתור וסיווג נקודות קיצון מקומיות בעזרת מטריצת הסיאן, ופתרון בעיות אופטימיזציה מורכבות תחת אילוצים באמצעות שיטת כופלי לגראנז.'
     }
 ];
 
@@ -58,19 +59,19 @@ const denomResources = [
         symbol: 'Xm', displaySymbol: 'X<sub>m</sub>', title: 'מאגר בחינות', shortTitle: 'מאגר בחינות', url: 'exams.html',
         ring1: '#818cf8', ring2: '#c7d2fe', ring3: '#4f46e5', glowColor: 'rgba(99, 102, 241, 0.5)', textColor: '#3730a3',
         orbitSpeed1: '4.4s', orbitSpeed2: '6.5s', animFloat: 'organic-droplet-2',
-        summary: 'מאגר מבחני עבר רשמיים פתורים ומנותחים לפרטי פרטים עם פתרונות מלאים והסברים מתמטיים מעמיקים.'
+        simpleDesc: 'מאגר מבחני עבר רשמיים פתורים של אינפי 2 עם פתרונות מלאים ומפורטים, הסברים צעד-אחר-צעד, וטיפים קריטיים להצלחה במבחן.'
     },
     {
         symbol: 'Gm', displaySymbol: 'G<sub>m</sub>', title: 'משחק תרגול', shortTitle: 'משחק תרגול', url: 'game.html',
         ring1: '#34d399', ring2: '#a7f3d0', ring3: '#059669', glowColor: 'rgba(16, 185, 129, 0.5)', textColor: '#065f46',
         orbitSpeed1: '4.2s', orbitSpeed2: '6.8s', animFloat: 'organic-droplet-3',
-        summary: 'משחק אתגר הטירוף של אינפי 2: תרגול אינטראקטיבי דינמי, ניקוד חי, שאלות זמן אמת ומעקב התקדמות.'
+        simpleDesc: 'משחק אתגר הטירוף של אינפי 2: תרגול אינטראקטיבי דינמי בזמן אמת, צבירת ניקוד, שאלות מושגיות מהירות ומעקב התקדמות חי.'
     },
     {
         symbol: 'Sm', displaySymbol: 'S<sub>m</sub>', title: 'סיכומי עזר', shortTitle: 'סיכומי עזר', url: 'summary.html',
         ring1: '#38bdf8', ring2: '#bae6fd', ring3: '#0284c7', glowColor: 'rgba(56, 189, 248, 0.5)', textColor: '#0369a1',
         orbitSpeed1: '4.6s', orbitSpeed2: '6.2s', animFloat: 'organic-droplet-1',
-        summary: 'סיכומי קורס מתומצתים וממוקדים, דפי נוסחאות, משפטים מרכזיים והוכחות קריטיות לבחינה הסופית.'
+        simpleDesc: 'סיכומי קורס מתומצתים וממוקדים, דפי נוסחאות מרוכזים ורשימת משפטי מפתח לשינון מהיר לקראת המבחן הסופי.'
     }
 ];
 
@@ -82,22 +83,23 @@ function generateUnitsHtml() {
     let html = '';
     units.forEach((u, i) => {
         html += `
-            <div class="unit-bubble-wrapper">
+            <div class="unit-bubble-wrapper relative flex flex-col items-center">
+                <!-- Circle Droplet (Fixed size & aspect-square so it NEVER distorts into an oval!) -->
                 <a href="${u.url}" 
-                   class="unit-expanding-orb"
+                   class="unit-orb-button relative w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 aspect-square rounded-full shrink-0 flex items-center justify-center text-decoration-none shadow-sm transition-transform duration-300 hover:scale-105"
                    style="--ring-c1: ${u.ring1}; --ring-c2: ${u.ring2}; --ring-c3: ${u.ring3}; --glow-color: ${u.glowColor}; animation: ${u.animFloat} 7s ease-in-out infinite;">
                     
-                    <!-- Default State Content: Large Number -->
-                    <div class="orb-default-state">
-                        <span class="font-caveat font-bold text-3xl sm:text-4xl text-slate-900 select-none">${u.num}</span>
-                    </div>
+                    <span class="font-caveat font-bold text-3xl sm:text-4xl text-slate-900 select-none relative z-10">${u.num}</span>
 
-                    <!-- Hover Expanded Content (Revealed inside the expanded circle itself) -->
-                    <div class="orb-expanded-state" dir="rtl">
-                        <span class="text-xs font-bold text-indigo-950 mb-1">יחידה ${u.num} • ${u.title}</span>
-                        <p class="text-[11px] text-slate-700 leading-snug mb-2 font-medium">${u.summary}</p>
-                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-indigo-600 text-white shadow-xs">
-                            לחצו לכניסה ←
+                    <!-- Spacious Expanded Card Popover Revealed on Hover Centered in Place -->
+                    <div class="unit-expanded-popover hidden p-4 flex-col items-center text-center shadow-2xl" dir="rtl">
+                        <div class="flex items-center gap-1.5 mb-1.5">
+                            <span class="w-2 h-2 rounded-full" style="background: ${u.ring1};"></span>
+                            <span class="text-xs font-black text-indigo-950">יחידה ${u.num} • ${u.title}</span>
+                        </div>
+                        <p class="text-[11px] text-slate-700 leading-relaxed mb-3 font-medium">${u.simpleDesc}</p>
+                        <span class="text-[11px] font-bold px-3 py-1 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white shadow-xs transition-colors">
+                            לחצו לכניסה ליחידה ←
                         </span>
                     </div>
                 </a>
@@ -111,7 +113,7 @@ function generateUnitsHtml() {
         if (i < units.length - 1) {
             const pColor = pencilPlusColors[i % pencilPlusColors.length];
             html += `
-                <div class="pencil-plus-sign text-base sm:text-lg select-none px-0.5 mb-5" style="color: ${pColor};">
+                <div class="pencil-plus-sign text-base sm:text-lg select-none px-0.5 mb-5 shrink-0" style="color: ${pColor};">
                     +
                 </div>
             `;
@@ -124,21 +126,20 @@ function generateDenomHtml() {
     let html = '';
     denomResources.forEach((d, i) => {
         html += `
-            <div class="unit-bubble-wrapper">
+            <div class="unit-bubble-wrapper relative flex flex-col items-center">
                 <a href="${d.url}" 
-                   class="unit-expanding-orb"
+                   class="unit-orb-button relative w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 aspect-square rounded-full shrink-0 flex items-center justify-center text-decoration-none shadow-sm transition-transform duration-300 hover:scale-105"
                    style="--ring-c1: ${d.ring1}; --ring-c2: ${d.ring2}; --ring-c3: ${d.ring3}; --glow-color: ${d.glowColor}; animation: ${d.animFloat} 7s ease-in-out infinite;">
                     
-                    <!-- Default State Content -->
-                    <div class="orb-default-state">
-                        <span class="font-caveat font-bold text-2xl sm:text-3xl text-slate-900 select-none">${d.displaySymbol}</span>
-                    </div>
+                    <span class="font-caveat font-bold text-2xl sm:text-3xl text-slate-900 select-none relative z-10">${d.displaySymbol}</span>
 
-                    <!-- Hover Expanded Content -->
-                    <div class="orb-expanded-state" dir="rtl">
-                        <span class="text-xs font-bold text-indigo-950 mb-1">${d.title}</span>
-                        <p class="text-[11px] text-slate-700 leading-snug mb-2 font-medium">${d.summary}</p>
-                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-indigo-600 text-white shadow-xs">
+                    <div class="unit-expanded-popover hidden p-4 flex-col items-center text-center shadow-2xl" dir="rtl">
+                        <div class="flex items-center gap-1.5 mb-1.5">
+                            <span class="w-2 h-2 rounded-full" style="background: ${d.ring1};"></span>
+                            <span class="text-xs font-black text-indigo-950">${d.title}</span>
+                        </div>
+                        <p class="text-[11px] text-slate-700 leading-relaxed mb-3 font-medium">${d.simpleDesc}</p>
+                        <span class="text-[11px] font-bold px-3 py-1 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white shadow-xs transition-colors">
                             כניסה למשאב ←
                         </span>
                     </div>
@@ -151,7 +152,7 @@ function generateDenomHtml() {
         `;
         if (i < denomResources.length - 1) {
             html += `
-                <div class="pencil-plus-sign text-base sm:text-lg select-none px-2 mb-5" style="color: #6366f1;">
+                <div class="pencil-plus-sign text-base sm:text-lg select-none px-2 mb-5 shrink-0" style="color: #6366f1;">
                     +
                 </div>
             `;
@@ -261,94 +262,53 @@ const finalHtml = `<!DOCTYPE html>
             opacity: 0.65;
         }
 
-        /* EXPANDING UNIT BUBBLE ARCHITECTURE (No separate black tooltips) */
-        .unit-bubble-wrapper {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 4.5rem;
-        }
-
-        .unit-expanding-orb {
-            position: relative;
-            width: 4.25rem;
-            height: 4.25rem;
-            border-radius: 9999px;
+        /* UNIT ORB BUTTON ARCHITECTURE (Strict aspect-square, zero oval stretching) */
+        .unit-orb-button {
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 2px solid transparent;
-            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            z-index: 20;
+            position: relative;
         }
 
-        .unit-expanding-orb::before {
+        .unit-orb-button::before {
             content: '';
             position: absolute;
             inset: -2.5px;
-            border-radius: inherit;
+            border-radius: 9999px;
             padding: 2.5px;
             background: conic-gradient(from 0deg, var(--ring-c1), var(--ring-c2), var(--ring-c3), var(--ring-c1));
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             opacity: 0.9;
-            transition: opacity 0.3s ease;
         }
 
-        .orb-default-state {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.2s ease;
-        }
-
-        .orb-expanded-state {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.25s ease 0.1s;
-        }
-
-        /* ON HOVER: THE CIRCLE ITSELF EXPANDS IN PLACE AND DISPLAYS ITS CONTENT INSIDE */
-        .unit-bubble-wrapper:hover .unit-expanding-orb {
+        /* SPACIOUS EXPANDED POPOVER ON HOVER (Directly centered, never squished!) */
+        .unit-expanded-popover {
             position: absolute;
-            top: -24px;
-            width: 220px;
-            height: auto;
-            min-height: 150px;
-            border-radius: 1.5rem;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.95);
+            width: 280px;
+            min-height: 165px;
+            border-radius: 1.75rem;
             background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            z-index: 60;
-            box-shadow: 0 16px 36px -6px var(--glow-color), 0 0 0 1.5px rgba(255, 255, 255, 0.9) inset;
-            padding: 0.85rem;
-            transform: scale(1.02);
-        }
-
-        .unit-bubble-wrapper:hover .orb-default-state {
-            display: none;
-        }
-
-        .unit-bubble-wrapper:hover .orb-expanded-state {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            opacity: 1;
-        }
-
-        .unit-bubble-wrapper:hover .unit-under-label {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1.5px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 20px 40px -10px var(--glow-color), 0 0 0 1px rgba(99, 102, 241, 0.15);
+            z-index: 100;
             opacity: 0;
+            pointer-events: none;
+            transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .unit-bubble-wrapper:hover .unit-expanded-popover {
+            display: flex;
+            opacity: 1;
+            pointer-events: auto;
+            transform: translate(-50%, -50%) scale(1);
         }
 
         @keyframes organic-droplet-1 {
@@ -370,74 +330,57 @@ const finalHtml = `<!DOCTYPE html>
         }
 
         .soft-pastel-fraction-bar {
-            height: 3.5px;
+            height: 4px;
             background: linear-gradient(90deg, 
-                rgba(56, 189, 248, 0.75), 
-                rgba(129, 140, 248, 0.75), 
-                rgba(52, 211, 153, 0.75), 
-                rgba(192, 132, 252, 0.75), 
-                rgba(251, 113, 133, 0.75), 
-                rgba(245, 158, 11, 0.75), 
-                rgba(248, 113, 113, 0.75));
+                rgba(56, 189, 248, 0.85), 
+                rgba(129, 140, 248, 0.85), 
+                rgba(52, 211, 153, 0.85), 
+                rgba(192, 132, 252, 0.85), 
+                rgba(251, 113, 133, 0.85), 
+                rgba(245, 158, 11, 0.85), 
+                rgba(248, 113, 113, 0.85));
             border-radius: 9999px;
-            box-shadow: 0 0 10px rgba(99, 102, 241, 0.35);
+            box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
         }
 
+        /* FLOATING "לקורסים נוספים" BUTTON: MOVED TO LEFT, PASTEL DROPLET STYLE WITH FLOATING INTEGRAL ICON */
         .floating-course-switcher-btn {
             position: fixed;
             top: 1.5rem;
-            right: 1.5rem;
+            left: 1.5rem;
             z-index: 60;
-            width: 76px;
-            height: 76px;
+            width: 86px;
+            height: 86px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+            animation: organic-droplet-1 7s ease-in-out infinite;
         }
 
         .floating-course-switcher-btn:hover {
-            transform: scale(1.06);
-            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.2);
+            transform: scale(1.08);
+            box-shadow: 0 14px 35px rgba(99, 102, 241, 0.25);
         }
 
         .floating-course-switcher-btn::before {
             content: '';
             position: absolute;
-            inset: -2px;
-            border-radius: 50%;
-            padding: 2px;
-            background: conic-gradient(from 0deg, #ec4899, #8b5cf6, #3b82f6, #10b981, #f59e0b, #ec4899);
+            inset: -2.5px;
+            border-radius: inherit;
+            padding: 2.5px;
+            background: conic-gradient(from 0deg, #38bdf8, #818cf8, #f472b6, #fbbf24, #34d399, #38bdf8);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
-            animation: ringRotate 5s linear infinite;
-        }
-
-        .silver-wave-layer {
-            position: absolute;
-            inset: 0;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8) 0%, rgba(226, 232, 240, 0.4) 50%, rgba(148, 163, 184, 0.2) 100%);
-            animation: waveShimmer 3s ease-in-out infinite alternate;
-            z-index: 1;
-        }
-
-        .inner-orbiting-ring {
-            position: absolute;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 1px dashed rgba(99, 102, 241, 0.4);
-            animation: orbitCounterClockwise 8s linear infinite;
-            z-index: 2;
+            animation: ringRotate 6s linear infinite;
         }
 
         @keyframes ringRotate {
@@ -445,14 +388,13 @@ const finalHtml = `<!DOCTYPE html>
             100% { transform: rotate(360deg); }
         }
 
-        @keyframes orbitCounterClockwise {
-            0% { transform: rotate(360deg); }
-            100% { transform: rotate(0deg); }
+        @keyframes floatingIntegral {
+            0%, 100% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 2px rgba(99, 102, 241, 0.4)); }
+            50% { transform: translateY(-3px) scale(1.1); filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.7)); }
         }
 
-        @keyframes waveShimmer {
-            0% { opacity: 0.6; transform: scale(0.98); }
-            100% { opacity: 1; transform: scale(1.02); }
+        .floating-symbol-integral {
+            animation: floatingIntegral 2.8s ease-in-out infinite;
         }
 
         .explorer-slider-track {
@@ -517,16 +459,20 @@ const finalHtml = `<!DOCTYPE html>
         <div class="absolute inset-0 bg-white/20"></div>
     </div>
 
-    <!-- Floating Circular "לקורסים נוספים" Button -->
+    <!-- Floating Circular "לקורסים נוספים" Button (Moved to LEFT, enlarged, pastel shades, with animated floating integral symbol) -->
     <a href="../../index.html" 
        class="floating-course-switcher-btn group" 
        title="חזרה לפורטל הראשי של כל הקורסים">
-        <div class="silver-wave-layer"></div>
-        <div class="inner-orbiting-ring"></div>
-        <div class="relative z-10 flex flex-col items-center justify-center pointer-events-none">
-            <i class="fa-solid fa-compass text-indigo-600 text-lg group-hover:rotate-45 transition-transform duration-500 mb-0.5"></i>
-            <span class="text-[10px] font-extrabold text-slate-800 tracking-tight leading-tight">לקורסים</span>
-            <span class="text-[9px] font-bold text-indigo-700 leading-tight">נוספים</span>
+        <div class="relative z-10 flex flex-col items-center justify-center pointer-events-none select-none">
+            <span class="font-caveat text-3xl sm:text-4xl text-indigo-700 font-bold leading-none floating-symbol-integral">
+                ∫
+            </span>
+            <span class="text-[10px] font-extrabold text-slate-800 tracking-tight leading-none mt-0.5">
+                לקורסים
+            </span>
+            <span class="text-[9px] font-bold text-indigo-600 leading-none">
+                נוספים
+            </span>
         </div>
     </a>
 
@@ -551,22 +497,40 @@ const finalHtml = `<!DOCTYPE html>
                 חשבון אינפיניטסימלי <span class="text-indigo-600">2</span>
             </h1>
 
-            <p class="text-slate-600 text-sm sm:text-base max-w-2xl font-medium mb-4">
-                ברוכים הבאים לפורטל הסיכום והלמידה המקיף. 7 יחידות הלימוד, 100 אינטגרלים מודרכים ומאגר בחינות מלא.
+            <p class="text-slate-600 text-sm sm:text-base max-w-2xl font-medium mb-4 leading-relaxed">
+                קורס חשבון אינפיניטסימלי 2 מהווה את שער הכניסה לאנליזה מתקדמת: מאינטגרלים לא אמיתיים והתכנסות במידה שווה של סדרות וטורי פונקציות, ועד לגבולות כפולים, נגזרות חלקיות, פונקציות סתומות וקיצון תחת אילוצים במרחב הרב-ממדי.
             </p>
 
-            <!-- Interactive Accordion Guide (Inside the white box!) -->
+            <!-- Interactive Accordion Guide (Site Structure & How to Master the Course) -->
             <div class="w-full max-w-xl bg-slate-50/80 rounded-2xl border border-indigo-100 shadow-2xs overflow-hidden transition-all duration-300">
                 <button onclick="toggleGuideAccordion()" 
                         class="w-full px-5 py-3 flex items-center justify-between text-xs sm:text-sm font-bold text-slate-700 hover:text-indigo-700 hover:bg-indigo-50/50 transition-colors cursor-pointer">
                     <span class="flex items-center gap-2">
-                        <i class="fa-solid fa-wand-magic-sparkles text-amber-500"></i>
-                        <span>למה צריך אתר לקורס? לחצו להסבר</span>
+                        <i class="fa-solid fa-graduation-cap text-indigo-600"></i>
+                        <span>מדריך מהיר: מבנה האתר ואיך ללמוד כאן בהצלחה ✨</span>
                     </span>
                     <i id="guide-chevron" class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
                 </button>
-                <div id="guide-accordion-content" class="hidden px-5 pb-4 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 text-right">
-                    קורס אינפי 2 הוא אחד מקורסי הליבה המאתגרים ביותר בתואר. האתר נבנה במטרה להנגיש את כל החומר התיאורטי עם דגש על אינטואיציה ויזואלית, סימולציות מתמטיות חיות, פירוק מעמיק של מבחני עבר ודפי סיכום ממוקדים להצלחה מקסימלית בבחינה.
+                <div id="guide-accordion-content" class="hidden px-5 pb-5 pt-2 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 text-right">
+                    <div class="space-y-3">
+                        <div>
+                            <span class="font-bold text-indigo-950 block mb-0.5">📚 שלושת השלבים המובנים בכל פרק:</span>
+                            <ul class="list-disc list-inside space-y-1 text-slate-600 pr-1 text-[12px] sm:text-xs">
+                                <li><strong>תיאוריה והסברים מקיפים:</strong> פיתוח אינטואיטיבי של כל ההגדרות, המשפטים המרכזיים והוכחות שלב-אחר-שלב.</li>
+                                <li><strong>סימולציות מתמטיות חיות:</strong> הדמיות אינטראקטיביות להמחשת התכנסות, עקומות ומשטחים תלת-ממדיים.</li>
+                                <li><strong>מאגר שאלות מודרכות:</strong> תרגול אקטיבי של שאלות אמריקאיות עם רמזים מדורגים ופתרונות מלאים.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <span class="font-bold text-indigo-950 block mb-0.5">🚀 משאבי ההצלחה לבחינה:</span>
+                            <p class="text-[12px] text-slate-600 leading-normal">
+                                <strong>משחק אתגר הטירוף (Gm):</strong> תרגול שאלות קונספטואליות בזמן אמת.<br>
+                                <strong>סיכומי עזר ממוקדים (Sm):</strong> דפי נוסחאות ורשימת משפטי מפתח לשינון מהיר.<br>
+                                <strong>מאגר הבחינות הרשמי (Xm / dx=100):</strong> פתרונות מפורטים ומנותחים למועדי עבר.<br>
+                                <strong>משוואת 100 האינטגרלים:</strong> לחצו על סמל האינטגרל או פס החלוקה למסע מודרך של 100 שאלות!
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -577,13 +541,16 @@ const finalHtml = `<!DOCTYPE html>
              ============================================================ -->
         <section class="w-full max-w-5xl translucent-equation-stage p-6 sm:p-8 md:p-10 mb-12">
             
-            <!-- Default Equation View (מצב רגיל של משוואת הקורס - מוגדר ב-LTR כדי שהאינטגרל משמאל ו-dx מימין) -->
+            <!-- Default Equation View (מצב רגיל של משוואת הקורס - מוגדר ב-LTR) -->
             <div id="course-equation-view" class="w-full flex items-center justify-between gap-2 sm:gap-3" dir="ltr">
                 
-                <!-- 1. LEFT RED CALLIGRAPHY INTEGRAL COLUMN (0 TO 100) -->
-                <div class="integral-column relative h-56 sm:h-64 md:h-72 px-1 flex flex-col justify-between items-center shrink-0 cursor-pointer"
+                <!-- 1. LEFT RED CALLIGRAPHY INTEGRAL COLUMN (0 TO 100) WITH INTERACTIVE MOUSE TRACKING -->
+                <div id="integral-col-interactive" 
+                     class="integral-column relative h-56 sm:h-64 md:h-72 px-1 flex flex-col justify-between items-center shrink-0 cursor-pointer"
+                     onmousemove="handleIntegralMouseMove(event)"
+                     onmouseleave="handleIntegralMouseLeave()"
                      onclick="handleIntegralClick(event)"
-                     title="לחצו בכל מקום לאורך האינטגרל לחקירת מסע 100 האינטגרלים!">
+                     title="הזיזו את העכבר לאורך האינטגרל ולחצו לחקירת מסע 100 האינטגרלים!">
                     
                     <!-- Upper Bound: 100 in RED pen style -->
                     <div class="relative z-30 self-end pl-0 sm:pl-1">
@@ -593,7 +560,7 @@ const finalHtml = `<!DOCTYPE html>
                     </div>
 
                     <!-- Classical Calligraphic Integral Symbol in RED with Correct Orientations -->
-                    <div class="relative flex-1 w-8 sm:w-9 md:w-10 flex items-center justify-center my-0.5">
+                    <div class="relative flex-1 w-8 sm:w-9 md:w-10 flex items-center justify-center my-0.5 pointer-events-none">
                         <svg viewBox="0 0 38 220" class="w-full h-full overflow-visible select-none drop-shadow-sm">
                             <!-- Top hook curves UP-RIGHT, stem goes through center, bottom hook curves DOWN-LEFT -->
                             <path d="M 33,20 C 31,7 21,7 17,20 L 17,200 C 13,213 3,213 1,200" 
@@ -602,7 +569,9 @@ const finalHtml = `<!DOCTYPE html>
                                   stroke-width="5" 
                                   stroke-linecap="round" 
                                   stroke-linejoin="round" />
-                            <circle cx="17" cy="110" r="3.5" fill="#f59e0b" stroke="#ffffff" stroke-width="1.2" style="filter: drop-shadow(0 0 6px #f59e0b);" />
+                            <!-- Interactive Glowing Light Dot tracking the mouse Y position! -->
+                            <circle id="integral-tracking-dot" cx="17" cy="110" r="4.2" fill="#f59e0b" stroke="#ffffff" stroke-width="1.5" 
+                                    style="filter: drop-shadow(0 0 8px #f59e0b); transition: cy 0.08s ease-out;" />
                         </svg>
                     </div>
 
@@ -618,29 +587,38 @@ const finalHtml = `<!DOCTYPE html>
                 <!-- 2. CENTER FRACTION: NUMERATOR (UNITS) / DENOMINATOR (RESOURCES) -->
                 <div class="flex-1 flex flex-col items-center justify-center px-2 sm:px-4 min-w-0">
                     
-                    <!-- NUMERATOR: 7 Core Units (Expanding on hover, content inside!) -->
+                    <!-- NUMERATOR: 7 Core Units (Fixed circular bubbles, expanding popovers on hover) -->
                     <div class="w-full flex items-center justify-center gap-1.5 sm:gap-2 md:gap-3 flex-wrap sm:flex-nowrap">
                         ${generateUnitsHtml()}
                     </div>
 
-                    <!-- FRACTION BAR: Pastel Gradient Glow Line -->
-                    <div class="w-full my-4 sm:my-5 relative px-1 cursor-pointer"
+                    <!-- FRACTION BAR: Pastel Gradient Glow Line with Interactive Mouse Tracking Dot -->
+                    <div id="fraction-bar-interactive" 
+                         class="w-full my-4 sm:my-5 relative px-1 py-2 cursor-pointer group"
+                         onmousemove="handleFractionBarMouseMove(event)"
+                         onmouseleave="handleFractionBarMouseLeave()"
                          onclick="handleFractionBarClick(event)"
-                         title="לחצו בכל נקודה לאורך הפס לפתיחת שלב תואם במסע 100 האינטגרלים!">
-                        <div class="soft-pastel-fraction-bar w-full"></div>
-                        <div class="absolute inset-0 hover:bg-indigo-400/20 rounded-full transition-colors"></div>
+                         title="הזיזו את העכבר לאורך הקו ולחצו לפתיחת שלב תואם במסע 100 האינטגרלים!">
+                        <div class="soft-pastel-fraction-bar w-full relative">
+                            <!-- Interactive Glowing Light Dot tracking the mouse X position! -->
+                            <div id="fraction-tracking-dot" 
+                                 class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-amber-400 border-2 border-white shadow-[0_0_10px_#f59e0b] pointer-events-none transition-all duration-75"
+                                 style="left: 50%;"></div>
+                        </div>
                     </div>
 
-                    <!-- DENOMINATOR: 3 Master Resources (Xm + Gm + Sm) (Expanding on hover, content inside!) -->
+                    <!-- DENOMINATOR: 3 Master Resources (Xm + Gm + Sm) -->
                     <div class="w-full flex items-center justify-center gap-4 sm:gap-6 md:gap-8 flex-wrap sm:flex-nowrap">
                         ${generateDenomHtml()}
                     </div>
 
                 </div>
 
-                <!-- 3. RIGHT HANDWRITTEN EQUATION TERMINATOR: dx = 100 in RED -->
-                <div class="flex items-center gap-2 sm:gap-2.5 shrink-0 self-center pl-1 sm:pl-3">
-                    <span class="pen-integral-text italic text-2xl sm:text-3xl text-slate-800 select-none">
+                <!-- 3. RIGHT HANDWRITTEN EQUATION TERMINATOR: dx = 100 (Clickable: links to exams.html!) -->
+                <a href="exams.html" 
+                   class="flex items-center gap-2 sm:gap-2.5 shrink-0 self-center pl-1 sm:pl-3 group/dx cursor-pointer text-decoration-none transition-transform hover:scale-105"
+                   title="מעבר למאגר בחינות העבר של אינפי 2 (ציון 100!)">
+                    <span class="pen-integral-text italic text-2xl sm:text-3xl text-slate-800 select-none group-hover/dx:text-rose-600 transition-colors">
                         dx
                     </span>
                     <span class="font-caveat font-bold text-2xl sm:text-3xl text-rose-600 select-none">
@@ -655,7 +633,7 @@ const finalHtml = `<!DOCTYPE html>
                             <path d="M 6,8 Q 35,6 64,9" class="pencil-underline-red" />
                         </svg>
                     </div>
-                </div>
+                </a>
 
             </div>
 
@@ -690,7 +668,7 @@ const finalHtml = `<!DOCTYPE html>
                         <span class="cursor-pointer hover:text-indigo-600" onclick="setExplorerLevel(1)">1 • יסודות</span>
                         <span class="cursor-pointer hover:text-indigo-600" onclick="setExplorerLevel(31)">31 • סדרות</span>
                         <span class="cursor-pointer hover:text-indigo-600" onclick="setExplorerLevel(51)">51 • טורים</span>
-                        <span class="cursor-pointer hover:text-indigo-600" onclick="setExplorerLevel(71)">71 • לייבניץ</span>
+                        <span class="cursor-pointer hover:text-indigo-600" onclick="setExplorerLevel(71)">71 • נגזרות</span>
                         <span class="cursor-pointer hover:text-rose-600 font-extrabold" onclick="setExplorerLevel(100)">100 • מבחן שיא 🎯</span>
                     </div>
                     <input id="exp-slider" type="range" min="1" max="100" value="1" 
@@ -750,7 +728,7 @@ const finalHtml = `<!DOCTYPE html>
                             </div>
                         </div>
 
-                        <!-- Navigation Controls (לשלב הבא / שלב קודם) -->
+                        <!-- Navigation Controls (לשלב הבא / לשלב הקודם) -->
                         <div id="exp-step-controls" class="flex items-center justify-between pt-3 mt-3 border-t border-amber-200/60">
                             <!-- Dynamic controls injected via JS -->
                         </div>
@@ -783,45 +761,40 @@ const finalHtml = `<!DOCTYPE html>
         </section>
 
         <!-- ============================================================
-             PART 4: FOOTER (AUTHENTIC INFI 1 / LINEAR 1 DESIGN)
+             PART 4: FOOTER (EXACT MATCH TO LINEAR 1 DESIGN)
              ============================================================ -->
         <footer class="bg-transparent pb-6 relative z-30 mt-auto w-full">
             <div class="flex flex-col items-center">
 
-                <!-- Social & Contact Buttons (LinkedIn & WhatsApp ONLY) -->
+                <!-- Social & Contact Buttons (WhatsApp & LinkedIn) -->
                 <div class="flex justify-center items-center gap-5 mb-3">
-                    <!-- LinkedIn -->
-                    <a href="https://linkedin.com/in/yair-kurtzman-382417247" target="_blank" rel="noopener noreferrer"
-                        title="LinkedIn"
-                        class="w-12 h-12 bg-white/60 backdrop-blur-md rounded-2xl flex items-center justify-center shadow-xs border border-white hover:border-sky-400 hover:bg-sky-500/20 hover:scale-105 transition-all duration-300 text-slate-700">
-                        <svg class="w-5 h-5 hover:text-sky-600 transition-colors" fill="currentColor"
-                            viewBox="0 0 24 24">
-                            <path fill-rule="evenodd"
-                                d="M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-1.61 1.61h-.022A1.61 1.61 0 0 1 3.96 6.106a1.61 1.61 0 1 1 3.24 0ZM7.18 19.5H4V8.796h3.18V19.5Z"
-                                clip-rule="evenodd" />
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/972586736525" target="_blank" rel="noopener noreferrer" title="WhatsApp"
+                        class="w-12 h-12 bg-white/70 backdrop-blur-md rounded-2xl flex items-center justify-center shadow-xs border border-white hover:border-green-400 hover:bg-green-500/20 hover:scale-105 transition-all duration-300 text-slate-700">
+                        <svg class="w-5 h-5 hover:text-green-500 transition-colors" fill="currentColor" viewBox="0 0 448 512">
+                            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
                         </svg>
                     </a>
 
-                    <!-- WhatsApp -->
-                    <a href="https://wa.me/972586736525" target="_blank" rel="noopener noreferrer" title="WhatsApp"
-                        class="w-12 h-12 bg-white/60 backdrop-blur-md rounded-2xl flex items-center justify-center shadow-xs border border-white hover:border-green-400 hover:bg-green-500/20 hover:scale-105 transition-all duration-300 text-slate-700">
-                        <svg class="w-5 h-5 hover:text-green-500 transition-colors" fill="currentColor"
-                            viewBox="0 0 448 512">
-                            <path
-                                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+                    <!-- LinkedIn -->
+                    <a href="https://linkedin.com/in/yair-kurtzman-382417247" target="_blank" rel="noopener noreferrer" title="LinkedIn"
+                        class="w-12 h-12 bg-white/70 backdrop-blur-md rounded-2xl flex items-center justify-center shadow-xs border border-white hover:border-sky-400 hover:bg-sky-500/20 hover:scale-105 transition-all duration-300 text-slate-700">
+                        <svg class="w-5 h-5 hover:text-sky-600 transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-1.61 1.61h-.022A1.61 1.61 0 0 1 3.96 6.106a1.61 1.61 0 1 1 3.24 0ZM7.18 19.5H4V8.796h3.18V19.5Z" clip-rule="evenodd" />
                         </svg>
                     </a>
                 </div>
 
-                <!-- User's Personal Closing Statement & Copyright -->
-                <div class="max-w-2xl text-center px-4">
-                    <p class="text-slate-700 text-xs sm:text-sm leading-relaxed font-semibold mb-2">
-                        למידה מהנה ובהצלחה! <br>
-                        התוכן של האתר נערך ונסקר מכל הכיוונים על ידי, אבל עדיין האתר נבנה בעזרת בינה מלאכותית ולכן יתכנו
-                        טעויות, אשמח לעדכון אם מצאתם על מנת שאוכל לתקן.
+                <!-- Personal Statement & Copyright from linearit image -->
+                <div class="max-w-2xl text-center px-4" dir="rtl">
+                    <p class="text-slate-800 text-sm sm:text-base font-bold mb-1">
+                        🎓 !למידה מהנה ובהצלחה רבה במבחן
                     </p>
-                    <p class="text-slate-500 text-[11px] font-semibold">
-                        © כל הזכויות על המבחנים וחומרי הלמידה שמורות לאוניברסיטה הפתוחה ולמחברי הסיכומים
+                    <p class="text-slate-700 text-xs sm:text-sm font-semibold mb-2 leading-relaxed">
+                        האתר עוצב ונבנה כדי להפוך את מושגי החשבון האינפיניטסימלי לאינטואיטיביים, מוחשיים ונהירים.
+                    </p>
+                    <p class="text-slate-500 text-[11px] font-medium">
+                        © כל הזכויות על חומרי הלימוד והבחינות שמורות לאוניברסיטה הפתוחה ולמחברי הסיכומים
                     </p>
                 </div>
             </div>
@@ -864,6 +837,37 @@ const finalHtml = `<!DOCTYPE html>
                 }
             }
             return '<span class="font-mono text-sm">' + latexStr + '</span>';
+        }
+
+        // ==========================================
+        // INTERACTIVE MOUSE TRACKING ON INTEGRAL & FRACTION BAR
+        // ==========================================
+        function handleIntegralMouseMove(event) {
+            const rect = event.currentTarget.getBoundingClientRect();
+            const clientY = event.clientY - rect.top;
+            const pct = Math.max(0, Math.min(1, clientY / rect.height));
+            // In SVG coordinates (22 to 198)
+            const dotY = 22 + pct * (198 - 22);
+            const dot = document.getElementById('integral-tracking-dot');
+            if (dot) dot.setAttribute('cy', dotY.toFixed(1));
+        }
+
+        function handleIntegralMouseLeave() {
+            const dot = document.getElementById('integral-tracking-dot');
+            if (dot) dot.setAttribute('cy', '110');
+        }
+
+        function handleFractionBarMouseMove(event) {
+            const rect = event.currentTarget.getBoundingClientRect();
+            const clientX = event.clientX - rect.left;
+            const pct = Math.max(0, Math.min(1, clientX / rect.width));
+            const dot = document.getElementById('fraction-tracking-dot');
+            if (dot) dot.style.left = (pct * 100).toFixed(1) + '%';
+        }
+
+        function handleFractionBarMouseLeave() {
+            const dot = document.getElementById('fraction-tracking-dot');
+            if (dot) dot.style.left = '50%';
         }
 
         function openIntegralExplorer(level = 1) {
@@ -1203,4 +1207,4 @@ const finalHtml = `<!DOCTYPE html>
 `;
 
 fs.writeFileSync('index.html', finalHtml, 'utf8');
-console.log('Successfully written index.html with Red Calligraphic Integral, Enclosed White Header, Expanding Bubbles, and Notebook Explorer! File size:', (fs.statSync('index.html').size / 1024 / 1024).toFixed(2), 'MB');
+console.log('Successfully written index.html! File size:', (fs.statSync('index.html').size / 1024 / 1024).toFixed(2), 'MB');
