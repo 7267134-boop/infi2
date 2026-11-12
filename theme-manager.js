@@ -1,5 +1,20 @@
 // theme-manager.js - Global Dark Mode & Reading Mode Controller for Infi 2
 (function () {
+    // Global chapter navigation helper available immediately across all pages
+    window.handleChapterNav = function(ev, targetFile, titleText) {
+        if (ev && ev.preventDefault) ev.preventDefault();
+        const file = targetFile || 'index.html';
+        window.location.href = file;
+        return false;
+    };
+    window.navigateChapterLink = function(fileOrEl, ev) {
+        if (typeof fileOrEl === 'string') {
+            return window.handleChapterNav(ev, fileOrEl, fileOrEl);
+        }
+        const f = fileOrEl ? (fileOrEl.getAttribute('data-chapter-file') || fileOrEl.getAttribute('href') || 'index.html') : 'index.html';
+        return window.handleChapterNav(ev, f, fileOrEl ? fileOrEl.textContent.trim() : '');
+    };
+
     let currentTheme = localStorage.getItem('site-theme') || 'normal';
 
     function applyTheme() {

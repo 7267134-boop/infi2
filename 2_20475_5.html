@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html dir="rtl" lang="he">
 <head>
 <meta content="יחידה 5 בחשבון אינפיניטסימלי II (20475): טורים אינסופיים (פרק 5). הגדרת הטור וסדרת הסכומים החלקיים, טורים טלסקופיים והנדסיים, קריטריון קושי, תנאי הכרחי להתכנסות, טורים חיוביים, מבחני השוואה, מבחן השורש של קושי, מבחן המנה של ד'אלמבר, מבחן העיבוי והמבחן האינטגרלי, התכנסות בהחלט ובתנאי, מבחני לייבניץ, דיריכלה ואבל, ומשפטי דיריכלה ורימן על שינוי סדר האיברים בטור." name="ai-document-summary"/>
 <meta charset="utf-8"/>
+<!-- Global Theme Manager -->
+<script src="theme-manager.js"></script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>חשבון אינפיניטסימלי 2 (20475) — פרק 5: טורים אינסופיים (סעיפים 5.1–5.10)</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -1140,7 +1142,7 @@ svg text[direction="rtl"] { direction: rtl !important; unicode-bidi: isolate !im
 <div class="relative z-10 p-2.5 border-t border-sky-200/90 bg-white/95 backdrop-blur-md space-y-1.5 mt-auto" id="sidebar-footer">
 <div class="text-[10px] font-bold text-sky-800 text-center px-1">ניווט בין יחידות הקורס (קבצים באותה תיקייה):</div>
 <div class="grid grid-cols-3 gap-1.5">
-<button class="relative overflow-hidden py-1.5 px-1.5 rounded-lg bg-white/95 hover:bg-sky-50 text-sky-900 font-bold text-[10.5px] border border-sky-300 flex items-center justify-center gap-1 transition-all shadow-2xs text-center cursor-pointer no-underline" data-chapter-file="2_20475_4.html" id="sidebar-link-prev-ch" onclick="return handleChapterNav(event, '2_20475_4.html', 'פרק 4: קירוב פונקציות ע״י פולינומים (טיילור)')" title="מעבר לפרק הקודם — יחידה 4 (2_20475_4.html)" type="button">
+<button class="relative overflow-hidden py-1.5 px-1.5 rounded-lg bg-white/95 hover:bg-sky-50 text-sky-900 font-bold text-[10.5px] border border-sky-300 flex items-center justify-center gap-1 transition-all shadow-2xs text-center cursor-pointer no-underline" data-chapter-file="2_20475_4.html" id="sidebar-link-prev-ch" onclick="return handleChapterNav(event, '2_20475_4.html', 'פרק 4: פיתוחי טיילור ומקלורן')" title="מעבר לפרק הקודם — יחידה 4: פיתוחי טיילור ומקלורן (2_20475_4.html)" type="button">
 <span class="font-mono text-xs text-sky-600">→</span><span>לפרק הקודם</span>
 </button>
 <button class="relative overflow-hidden py-1.5 px-1.5 rounded-lg bg-gradient-to-b from-sky-100 to-blue-50 hover:from-sky-200 hover:to-blue-100 text-sky-950 font-black text-[10.5px] border border-sky-400 flex items-center justify-center gap-1 transition-all shadow-2xs text-center cursor-pointer no-underline" data-chapter-file="index.html" id="sidebar-link-main-menu" onclick="return handleChapterNav(event, 'index.html', 'התפריט הראשי של הקורס')" title="מעבר לתפריט הראשי של הקורס (index.html)" type="button">
@@ -16898,18 +16900,7 @@ $$\sum_{k=1}^{\infty} a_{\sigma(k)} = \sum_{n=1}^{\infty} a_n = S$$</div>
   window.handleChapterNav = function(ev, targetFile, titleText) {
     if (ev && ev.preventDefault) ev.preventDefault();
     const file = targetFile || 'index.html';
-    if (window.location.protocol === 'file:') {
-      window.location.href = file;
-      return false;
-    }
-    const toast = document.getElementById('chapter-nav-toast');
-    const toastTxt = document.getElementById('chapter-nav-toast-text');
-    if (toast && toastTxt) {
-      toastTxt.textContent = `ניווט אל ${titleText || file} (${file}) — הקובץ יקושר אוטומטית בתיקיית הקורס.`;
-      toast.style.opacity = '1';
-      clearTimeout(window._chToastTimer);
-      window._chToastTimer = setTimeout(() => { toast.style.opacity = '0'; }, 3200);
-    }
+    window.location.href = file;
     return false;
   };
   window.navigateChapterLink = function(el, ev) {

@@ -925,7 +925,7 @@ text-align: center;
 <div class="relative z-10 p-2.5 border-t border-sky-200/90 bg-white/95 backdrop-blur-md space-y-1.5 mt-auto" id="sidebar-footer">
 <div class="text-[10px] font-bold text-sky-800 text-center px-1">ניווט בין יחידות הקורס (קבצים באותה תיקייה):</div>
 <div class="grid grid-cols-3 gap-1.5">
-<button class="relative overflow-hidden py-1.5 px-1.5 rounded-lg bg-white/95 hover:bg-sky-50 text-sky-900 font-bold text-[10.5px] border border-sky-300 flex items-center justify-center gap-1 transition-all shadow-2xs text-center cursor-pointer no-underline" data-chapter-file="2_20475_5.html" id="sidebar-link-prev-ch" onclick="return handleChapterNav(event, '2_20475_5.html', 'פרק 5: אינטגרלים לא-אמיתיים וטורים')" title="מעבר לפרק הקודם — יחידה 5 (2_20475_5.html)" type="button">
+<button class="relative overflow-hidden py-1.5 px-1.5 rounded-lg bg-white/95 hover:bg-sky-50 text-sky-900 font-bold text-[10.5px] border border-sky-300 flex items-center justify-center gap-1 transition-all shadow-2xs text-center cursor-pointer no-underline" data-chapter-file="2_20475_5.html" id="sidebar-link-prev-ch" onclick="return handleChapterNav(event, '2_20475_5.html', 'פרק 5: טורים אינסופיים')" title="מעבר לפרק הקודם — יחידה 5: טורים אינסופיים (2_20475_5.html)" type="button">
 <span class="font-mono text-xs text-sky-600">→</span><span>לפרק הקודם</span>
 </button>
 <button class="relative overflow-hidden py-1.5 px-1.5 rounded-lg bg-gradient-to-b from-sky-100 to-blue-50 hover:from-sky-200 hover:to-blue-100 text-sky-950 font-black text-[10.5px] border border-sky-400 flex items-center justify-center gap-1 transition-all shadow-2xs text-center cursor-pointer no-underline" data-chapter-file="index.html" id="sidebar-link-main-menu" onclick="return handleChapterNav(event, 'index.html', 'התפריט הראשי של הקורס')" title="מעבר לתפריט הראשי של הקורס (index.html)" type="button">
@@ -6993,18 +6993,7 @@ window.filterLexicon = filterLexicon;
 function handleChapterNav(ev, targetFile, titleText) {
 if (ev && ev.preventDefault) ev.preventDefault();
 const file = targetFile || 'index.html';
-if (window.location.protocol === 'file:') {
 window.location.href = file;
-return false;
-}
-const toast = document.getElementById('chapter-nav-toast');
-const toastTxt = document.getElementById('chapter-nav-toast-text');
-if (toast && toastTxt) {
-toastTxt.textContent = `ניווט אל ${titleText || file} (${file}) — הקובץ יקושר אוטומטית בתיקיית הקורס.`;
-toast.style.opacity = '1';
-clearTimeout(window._chToastTimer);
-window._chToastTimer = setTimeout(() => { toast.style.opacity = '0'; }, 3200);
-}
 return false;
 }
 window.handleChapterNav = handleChapterNav;

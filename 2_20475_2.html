@@ -6791,18 +6791,7 @@ window.hydrateTheoremsCloneSlots = function() {
 window.handleChapterNav = function(ev, targetFile, titleText) {
   if (ev && ev.preventDefault) ev.preventDefault();
   const file = targetFile || 'index.html';
-  if (window.location.protocol === 'file:') {
-    window.location.href = file;
-    return false;
-  }
-  const toast = document.getElementById('chapter-nav-toast');
-  const toastTxt = document.getElementById('chapter-nav-toast-text');
-  if (toast && toastTxt) {
-    toastTxt.textContent = `ניווט אל ${titleText || file} (${file}) — הקובץ יקושר אוטומטית בתיקיית הקורס.`;
-    toast.style.opacity = '1';
-    clearTimeout(window._chToastTimer);
-    window._chToastTimer = setTimeout(() => { toast.style.opacity = '0'; }, 3200);
-  }
+  window.location.href = file;
   return false;
 };
 window.navigateChapterLink = function(el, ev) {
