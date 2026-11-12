@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl" class="h-full">
 <head>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e11d48'><path d='M15 4c-2.2 0-4 1.8-4 4v7c0 1.1-.9 2-2 2s-2-.9-2-2V9H5v6c0 2.2 1.8 4 4 4s4-1.8 4-4V8c0-1.1.9-2 2-2s2 .9 2 2v6h2V8c0-2.2-1.8-4-4-4z'/></svg>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>חשבון אינפיניטסימלי 2 (20475) | פורטל הלמידה והסיכום המקיף</title>
@@ -144,10 +145,10 @@
                 transform: translateX(0);
             }
             30% {
-                transform: translateX(3.5px);
+                transform: translateX(2.5px);
             }
             70% {
-                transform: translateX(-3.5px);
+                transform: translateX(-2.5px);
             }
         }
 
@@ -163,6 +164,25 @@
         .unit-cta-button:hover {
             animation-play-state: paused;
             transform: scale(1.05);
+        }
+
+        /* SUBTLE MULTI-DIRECTIONAL FLOATING FOR THE UNIT CARD (תזוזה עדינה לכל הכיוונים בריבוע היחידה) */
+        @keyframes popoverFloatAllDirections {
+            0%, 100% {
+                transform: translate3d(-50%, -50%, 0);
+            }
+            20% {
+                transform: translate3d(calc(-50% + 2.5px), calc(-50% - 2px), 0);
+            }
+            40% {
+                transform: translate3d(calc(-50% - 2px), calc(-50% - 1.5px), 0);
+            }
+            60% {
+                transform: translate3d(calc(-50% - 1.5px), calc(-50% + 2.5px), 0);
+            }
+            80% {
+                transform: translate3d(calc(-50% + 2px), calc(-50% + 1.5px), 0);
+            }
         }
 
         /* NARROWER ELEGANT POPOVER (Slim horizontal footprint, defined vertical length/height) */
@@ -201,7 +221,7 @@
         .unit-bubble-wrapper:focus-within .unit-expanded-popover {
             opacity: 1;
             pointer-events: auto;
-            transform: translate3d(-50%, -50%, 0) scale(1);
+            animation: popoverFloatAllDirections 4.5s ease-in-out infinite;
         }
 
         @keyframes organic-droplet-1 {
@@ -585,9 +605,9 @@
                        dir="rtl">
                         <div class="flex items-center gap-1.5 mb-1.5 shrink-0">
                             <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background: #38bdf8;"></span>
-                            <span class="text-xs sm:text-[12.5px] font-black text-slate-950 tracking-tight">יחידה 1 • אינטגרל לא אמיתי</span>
+                            <span class="text-xs sm:text-[12.5px] font-black text-slate-950 tracking-tight">יחידה 1 • האינטגרל המסוים</span>
                         </div>
-                        <p class="text-[11.5px] sm:text-[12px] text-slate-900 leading-relaxed my-auto font-semibold antialiased">אינטגרלים של פונקציות בקטעים אינסופיים או עם נקודות סינגולריות. נלמד מתי השטח מתחת לעקומה נשאר סופי, איך משווים לפונקציות פשוטות, ומבחני התכנסות מרכזיים (השוואה ישירה וגבולית, מבחן אבל ומבחן דיריכלה).</p>
+                        <p class="text-[11.5px] sm:text-[12px] text-slate-900 leading-relaxed my-auto font-semibold antialiased">הגדרת האינטגרל לפי רימן ודארבו: חלוקות, סכומים עליונים ותחתונים, ופונקציות אינטגרביליות (רציפות ומונוטוניות). המשפט היסודי של החדו"א ונוסחת ניוטון-לייבניץ.</p>
                         <span class="unit-cta-button inline-flex items-center gap-2 px-4 py-1.5 rounded-xl text-xs font-bold text-white shadow-xs shrink-0 mt-2" 
                               style="background: linear-gradient(135deg, #38bdf8, #0ea5e9);">
                             <span>לחצו לכניסה ליחידה</span>
@@ -598,7 +618,7 @@
                 
                 <!-- Short label underneath in normal view -->
                 <span class="unit-under-label text-[11px] sm:text-xs font-bold text-slate-800 mt-2 text-center tracking-tight max-w-[76px] leading-tight select-none" dir="rtl">
-                    אינטגרל לא אמיתי
+                    האינטגרל המסוים
                 </span>
             </div>
         
@@ -622,9 +642,9 @@
                        dir="rtl">
                         <div class="flex items-center gap-1.5 mb-1.5 shrink-0">
                             <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background: #818cf8;"></span>
-                            <span class="text-xs sm:text-[12.5px] font-black text-slate-950 tracking-tight">יחידה 2 • סדרות פונקציות</span>
+                            <span class="text-xs sm:text-[12.5px] font-black text-slate-950 tracking-tight">יחידה 2 • שיטות אינטגרציה</span>
                         </div>
-                        <p class="text-[11.5px] sm:text-[12px] text-slate-900 leading-relaxed my-auto font-semibold antialiased">איך מתנהגת סדרה של פונקציות כאשר האינדקס n שואף לאינסוף. נבדיל בין התכנסות נקודתית להתכנסות אחידה (במידה שווה - במ"ש), נשתמש במבחן הסופרמום Mn, ונבדוק מתי מותר להחליף סדר גבול ואינטגרל או נגזרת.</p>
+                        <p class="text-[11.5px] sm:text-[12px] text-slate-900 leading-relaxed my-auto font-semibold antialiased">ארגז הכלים לחישוב אינטגרלים: שיטת ההצבה, אינטגרציה בחלקים, פירוק פונקציות רציונליות לשברים חלקיים, והצבות טריגונומטריות והיפרבוליות מתקדמות.</p>
                         <span class="unit-cta-button inline-flex items-center gap-2 px-4 py-1.5 rounded-xl text-xs font-bold text-white shadow-xs shrink-0 mt-2" 
                               style="background: linear-gradient(135deg, #818cf8, #6366f1);">
                             <span>לחצו לכניסה ליחידה</span>
@@ -635,7 +655,7 @@
                 
                 <!-- Short label underneath in normal view -->
                 <span class="unit-under-label text-[11px] sm:text-xs font-bold text-slate-800 mt-2 text-center tracking-tight max-w-[76px] leading-tight select-none" dir="rtl">
-                    סדרות פונקציות
+                    שיטות אינטגרציה
                 </span>
             </div>
         
@@ -659,9 +679,9 @@
                        dir="rtl">
                         <div class="flex items-center gap-1.5 mb-1.5 shrink-0">
                             <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background: #34d399;"></span>
-                            <span class="text-xs sm:text-[12.5px] font-black text-slate-950 tracking-tight">יחידה 3 • טורי פונקציות</span>
+                            <span class="text-xs sm:text-[12.5px] font-black text-slate-950 tracking-tight">יחידה 3 • האינטגרל המוכלל</span>
                         </div>
-                        <p class="text-[11.5px] sm:text-[12px] text-slate-900 leading-relaxed my-auto font-semibold antialiased">סכום אינסופי של פונקציות. נלמד את מבחן ה-M של ויירשטראס להתכנסות במ"ש, נחקור טורי חזקות, רדיוס ותחום התכנסות R, גזירה ואינטגרציה איבר-איבר, ואיך להציג פונקציות מוכרות כטורי טיילור ומקלורן.</p>
+                        <p class="text-[11.5px] sm:text-[12px] text-slate-900 leading-relaxed my-auto font-semibold antialiased">אינטגרלים לא אמיתיים בקטעים אינסופיים או עם נקודות סינגולריות. מבחני התכנסות (השוואה ישירה וגבולית), התכנסות בהחלט ובתנאי, ומבחני אבל ודיריכלה.</p>
                         <span class="unit-cta-button inline-flex items-center gap-2 px-4 py-1.5 rounded-xl text-xs font-bold text-white shadow-xs shrink-0 mt-2" 
                               style="background: linear-gradient(135deg, #34d399, #10b981);">
                             <span>לחצו לכניסה ליחידה</span>
@@ -672,7 +692,7 @@
                 
                 <!-- Short label underneath in normal view -->
                 <span class="unit-under-label text-[11px] sm:text-xs font-bold text-slate-800 mt-2 text-center tracking-tight max-w-[76px] leading-tight select-none" dir="rtl">
-                    טורי פונקציות
+                    האינטגרל המוכלל
                 </span>
             </div>
         
@@ -696,9 +716,9 @@
                        dir="rtl">
                         <div class="flex items-center gap-1.5 mb-1.5 shrink-0">
                             <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background: #c084fc;"></span>
-                            <span class="text-xs sm:text-[12.5px] font-black text-slate-950 tracking-tight">יחידה 4 • המרחב האוקלידי</span>
+                            <span class="text-xs sm:text-[12.5px] font-black text-slate-950 tracking-tight">יחידה 4 • פיתוחי טיילור ומקלורן</span>
                         </div>
-                        <p class="text-[11.5px] sm:text-[12px] text-slate-900 leading-relaxed my-auto font-semibold antialiased">מעבר ממתמטיקה של משתנה יחיד למרחב של וקטורים במספר ממדים. מרחקים, נורמות, אי-שוויון קושי-שוורץ, קבוצות פתוחות, סגורות וקומפקטיות (משפט היינה-בורל), ועקומות במרחב עם חישוב וקטור מהירות ואורך קשת.</p>
+                        <p class="text-[11.5px] sm:text-[12px] text-slate-900 leading-relaxed my-auto font-semibold antialiased">קירוב פונקציות באמצעות פולינומים: פיתוחי טיילור ומקלורן, נוסחת לייבניץ לנגזרות, צורות שארית (לגראנז׳, קושי ופאנו), חישוב גבולות וחקירת קיצון ופיתול.</p>
                         <span class="unit-cta-button inline-flex items-center gap-2 px-4 py-1.5 rounded-xl text-xs font-bold text-white shadow-xs shrink-0 mt-2" 
                               style="background: linear-gradient(135deg, #c084fc, #a855f7);">
                             <span>לחצו לכניסה ליחידה</span>
@@ -709,7 +729,7 @@
                 
                 <!-- Short label underneath in normal view -->
                 <span class="unit-under-label text-[11px] sm:text-xs font-bold text-slate-800 mt-2 text-center tracking-tight max-w-[76px] leading-tight select-none" dir="rtl">
-                    המרחב האוקלידי
+                    פיתוחי טיילור
                 </span>
             </div>
         
@@ -733,9 +753,9 @@
                        dir="rtl">
                         <div class="flex items-center gap-1.5 mb-1.5 shrink-0">
                             <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background: #fb7185;"></span>
-                            <span class="text-xs sm:text-[12.5px] font-black text-slate-950 tracking-tight">יחידה 5 • גבולות ורציפות</span>
+                            <span class="text-xs sm:text-[12.5px] font-black text-slate-950 tracking-tight">יחידה 5 • טורים אינסופיים</span>
                         </div>
-                        <p class="text-[11.5px] sm:text-[12px] text-slate-900 leading-relaxed my-auto font-semibold antialiased">גבולות של פונקציות בשני משתנים ויותר f(x,y). נלמד איך להוכיח שגבול אינו קיים באמצעות מסלולים שונים, ואיך לחשב גבולות שכן קיימים בעזרת קואורדינטות קוטביות וכלל הסנדוויץ, לצד משפט ויירשטראס לקיצון בקבוצה קומפקטית.</p>
+                        <p class="text-[11.5px] sm:text-[12px] text-slate-900 leading-relaxed my-auto font-semibold antialiased">התכנסות סכומי מספרים אינסופיים: תנאי הכרחי, מבחני טורים חיוביים (ד'אלמבר, קושי, השוואה ואינטגרל), טורים כלליים (לייבניץ ואבל), ומשפט רימן.</p>
                         <span class="unit-cta-button inline-flex items-center gap-2 px-4 py-1.5 rounded-xl text-xs font-bold text-white shadow-xs shrink-0 mt-2" 
                               style="background: linear-gradient(135deg, #fb7185, #f43f5e);">
                             <span>לחצו לכניסה ליחידה</span>
@@ -746,7 +766,7 @@
                 
                 <!-- Short label underneath in normal view -->
                 <span class="unit-under-label text-[11px] sm:text-xs font-bold text-slate-800 mt-2 text-center tracking-tight max-w-[76px] leading-tight select-none" dir="rtl">
-                    גבולות ורציפות
+                    טורים אינסופיים
                 </span>
             </div>
         
@@ -770,9 +790,9 @@
                        dir="rtl">
                         <div class="flex items-center gap-1.5 mb-1.5 shrink-0">
                             <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background: #fbbf24;"></span>
-                            <span class="text-xs sm:text-[12.5px] font-black text-slate-950 tracking-tight">יחידה 6 • נגזרות חלקיות</span>
+                            <span class="text-xs sm:text-[12.5px] font-black text-slate-950 tracking-tight">יחידה 6 • סדרות וטורי פונקציות</span>
                         </div>
-                        <p class="text-[11.5px] sm:text-[12px] text-slate-900 leading-relaxed my-auto font-semibold antialiased">איך פונקציה רב-ממדית משתנה בכל כיוון. נגזרות חלקיות fx ו-fy, הגדרת הדיפרנציאביליות, בניית משוואת המישור המשיק, חישוב הגרדיאנט והנגזרת הכיוונית, כלל השרשרת הרב-ממדי, ושוויון נגזרות מעורבות לפי משפט שוורץ.</p>
+                        <p class="text-[11.5px] sm:text-[12px] text-slate-900 leading-relaxed my-auto font-semibold antialiased">התכנסות נקודתית מול התכנסות במידה שווה (במ"ש): מבחן הסופרמום Mn, מבחן ה-M של ויירשטראס, גזירה ואינטגרציה איבר-איבר, טורי חזקות ומשפט אבל.</p>
                         <span class="unit-cta-button inline-flex items-center gap-2 px-4 py-1.5 rounded-xl text-xs font-bold text-white shadow-xs shrink-0 mt-2" 
                               style="background: linear-gradient(135deg, #fbbf24, #f59e0b);">
                             <span>לחצו לכניסה ליחידה</span>
@@ -783,7 +803,7 @@
                 
                 <!-- Short label underneath in normal view -->
                 <span class="unit-under-label text-[11px] sm:text-xs font-bold text-slate-800 mt-2 text-center tracking-tight max-w-[76px] leading-tight select-none" dir="rtl">
-                    נגזרות חלקיות
+                    סדרות וטורים
                 </span>
             </div>
         
@@ -807,9 +827,9 @@
                        dir="rtl">
                         <div class="flex items-center gap-1.5 mb-1.5 shrink-0">
                             <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background: #f87171;"></span>
-                            <span class="text-xs sm:text-[12.5px] font-black text-slate-950 tracking-tight">יחידה 7 • פונקציות סתומות</span>
+                            <span class="text-xs sm:text-[12.5px] font-black text-slate-950 tracking-tight">יחידה 7 • חשבון דיפרנציאלי ב-ℝ²</span>
                         </div>
-                        <p class="text-[11.5px] sm:text-[12px] text-slate-900 leading-relaxed my-auto font-semibold antialiased">משפט הפונקציה הסתומה לגזירה ללא בידוד המשתנה, איתור וסיווג נקודות קיצון מקומיות בעזרת מטריצת הסיאן, ופתרון בעיות אופטימיזציה מורכבות תחת אילוצים באמצעות שיטת כופלי לגראנז.</p>
+                        <p class="text-[11.5px] sm:text-[12px] text-slate-900 leading-relaxed my-auto font-semibold antialiased">פונקציות בכמה משתנים: גבולות כפולים, נגזרות חלקיות ודיפרנציאביליות, מישור משיק וגרדיאנט, נגזרות כיווניות, מטריצת הסיאן לקיצון וכופלי לגראנז׳.</p>
                         <span class="unit-cta-button inline-flex items-center gap-2 px-4 py-1.5 rounded-xl text-xs font-bold text-white shadow-xs shrink-0 mt-2" 
                               style="background: linear-gradient(135deg, #f87171, #ef4444);">
                             <span>לחצו לכניסה ליחידה</span>
@@ -820,7 +840,7 @@
                 
                 <!-- Short label underneath in normal view -->
                 <span class="unit-under-label text-[11px] sm:text-xs font-bold text-slate-800 mt-2 text-center tracking-tight max-w-[76px] leading-tight select-none" dir="rtl">
-                    פונקציות סתומות
+                    חשבון ב-ℝ²
                 </span>
             </div>
         
@@ -858,12 +878,12 @@
                        dir="rtl">
                         <div class="flex items-center gap-1.5 mb-1.5 shrink-0">
                             <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background: #818cf8;"></span>
-                            <span class="text-xs sm:text-[12.5px] font-black text-slate-950 tracking-tight">מאגר בחינות</span>
+                            <span class="text-xs sm:text-[12.5px] font-black text-slate-950 tracking-tight">מאגר בחינות • 97 מועדים</span>
                         </div>
-                        <p class="text-[11.5px] sm:text-[12px] text-slate-900 leading-relaxed my-auto font-semibold antialiased">מאגר מבחני עבר רשמיים פתורים של אינפי 2 עם פתרונות מלאים ומפורטים, הסברים צעד-אחר-צעד, וטיפים קריטיים להצלחה במבחן.</p>
+                        <p class="text-[11.5px] sm:text-[12px] text-slate-900 leading-relaxed my-auto font-semibold antialiased">מאגר ענק של 97 מבחני עבר רשמיים מלאים של אינפי 2 עם פתרונות מפורטים, פילוח לפי שנים ומחזורים, שאלות אמריקאיות ופתוחות והנחיות לפתרון.</p>
                         <span class="unit-cta-button inline-flex items-center gap-2 px-4 py-1.5 rounded-xl text-xs font-bold text-white shadow-xs shrink-0 mt-2" 
                               style="background: linear-gradient(135deg, #818cf8, #4f46e5);">
-                            <span>כניסה למשאב</span>
+                            <span>כניסה למאגר</span>
                             <i class="fa-solid fa-arrow-left text-[11px]"></i>
                         </span>
                     </a>
@@ -892,19 +912,19 @@
                        dir="rtl">
                         <div class="flex items-center gap-1.5 mb-1.5 shrink-0">
                             <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background: #34d399;"></span>
-                            <span class="text-xs sm:text-[12.5px] font-black text-slate-950 tracking-tight">משחק תרגול</span>
+                            <span class="text-xs sm:text-[12.5px] font-black text-slate-950 tracking-tight">משחק טריוויה ואתגר טירוף</span>
                         </div>
-                        <p class="text-[11.5px] sm:text-[12px] text-slate-900 leading-relaxed my-auto font-semibold antialiased">משחק אתגר הטירוף של אינפי 2: תרגול אינטראקטיבי דינמי בזמן אמת, צבירת ניקוד, שאלות מושגיות מהירות ומעקב התקדמות חי.</p>
+                        <p class="text-[11.5px] sm:text-[12px] text-slate-900 leading-relaxed my-auto font-semibold antialiased">אתגר טריוויה אינטראקטיבי בזמן אמת: שאלות קונספטואליות מהירות, צבירת ניקוד, מעבדת גרפים וסימולציות חיות, מעקב שיאים והכנה חווייתית למבחן.</p>
                         <span class="unit-cta-button inline-flex items-center gap-2 px-4 py-1.5 rounded-xl text-xs font-bold text-white shadow-xs shrink-0 mt-2" 
                               style="background: linear-gradient(135deg, #34d399, #059669);">
-                            <span>כניסה למשאב</span>
+                            <span>כניסה למשחק</span>
                             <i class="fa-solid fa-arrow-left text-[11px]"></i>
                         </span>
                     </a>
                 </div>
                 
                 <span class="unit-under-label text-[11px] sm:text-xs font-bold text-slate-800 mt-2 text-center tracking-tight select-none" dir="rtl">
-                    משחק תרגול
+                    משחק טריוויה
                 </span>
             </div>
         
@@ -926,19 +946,19 @@
                        dir="rtl">
                         <div class="flex items-center gap-1.5 mb-1.5 shrink-0">
                             <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background: #38bdf8;"></span>
-                            <span class="text-xs sm:text-[12.5px] font-black text-slate-950 tracking-tight">סיכומי עזר</span>
+                            <span class="text-xs sm:text-[12.5px] font-black text-slate-950 tracking-tight">סיכום קורס על מסך אחד</span>
                         </div>
-                        <p class="text-[11.5px] sm:text-[12px] text-slate-900 leading-relaxed my-auto font-semibold antialiased">סיכומי קורס מתומצתים וממוקדים, דפי נוסחאות מרוכזים ורשימת משפטי מפתח לשינון מהיר לקראת המבחן הסופי.</p>
+                        <p class="text-[11.5px] sm:text-[12px] text-slate-900 leading-relaxed my-auto font-semibold antialiased">דף סיכום מקיף של כל משפטי המפתח והנוסחאות של אינפי 2, טבלת 20 אלגוריתמים מעשיים לפתרון שאלות מבחן ומפת קשרים מוחית שלמה של הקורס.</p>
                         <span class="unit-cta-button inline-flex items-center gap-2 px-4 py-1.5 rounded-xl text-xs font-bold text-white shadow-xs shrink-0 mt-2" 
                               style="background: linear-gradient(135deg, #38bdf8, #0284c7);">
-                            <span>כניסה למשאב</span>
+                            <span>כניסה לסיכום</span>
                             <i class="fa-solid fa-arrow-left text-[11px]"></i>
                         </span>
                     </a>
                 </div>
                 
                 <span class="unit-under-label text-[11px] sm:text-xs font-bold text-slate-800 mt-2 text-center tracking-tight select-none" dir="rtl">
-                    סיכומי עזר
+                    סיכום קורס
                 </span>
             </div>
         
