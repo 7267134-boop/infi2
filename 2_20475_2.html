@@ -2,6 +2,9 @@
 <html dir="rtl" lang="he">
 <head>
 <meta name="ai-document-summary" content="יחידה 2 בחשבון אינפיניטסימלי 2 (20475): שיטות אינטגרציה. פונקציות קדומות והאינטגרל הבלתי מסוים, משפט 2.2, פונקציות אלמנטריות ומשפט ליוביל, רשימות נוסחאות האינטגרציה (2.2.1 ו-2.3.10), כלל הליניאריות, אינטגרציה בחלקים ונוסחאות נסיגה, שיטת ההצבה (גרסאות א' ו-ב') והנגזרת הלוגריתמית, פונקציות רציונליות ושברים חלקיים, אינטגרלים טריגונומטריים והצבת ויירשטראס, והאינטגרל המסוים (משפטים 2.10 ו-2.11, סימטריה, מחזוריות, שטחים, נפחי גופי סיבוב וסכומי רימן)."/>
+
+    <!-- Global Theme Manager -->
+    <script src="theme-manager.js"></script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>חשבון אינפיניטסימלי 2 (20475) — יחידה 2: שיטות אינטגרציה — המדריך האינטראקטיבי המלא</title>
@@ -6630,7 +6633,8 @@ window.refreshSimModalInteractiveView = function() {
       { txt: `השמטת קבוע האינטגרציה או גורם הנגזרת הפנימית ללא בדיקת תנאי הרציפות בקטע`, ok: false }
     ].map(opt => `<button type="button" data-sim-ctrl="1" onclick="event.stopPropagation(); checkSimMiniQuiz(this, ${opt.ok})" class="sim-mini-opt p-2 rounded-xl bg-white hover:bg-sky-50 border border-slate-200 text-right text-xs font-medium text-slate-800 transition cursor-pointer">${opt.txt}</button>`).join('');
   }
-  window.refreshSimModalInteractiveView();
+  const modal = document.getElementById('sim-modal');
+  if (modal && window.renderMathInElementSafe) window.renderMathInElementSafe(modal, true);
 };
 function syncModalSlidersFromParams() {
   const sn = document.getElementById('sim-slider-n');
@@ -7476,5 +7480,11 @@ document.addEventListener('keydown', function(e) {
   }
 });
 </script>
+    <script src="ai_widget.js"></script>
+    <!-- Cloudflare Web Analytics -->
+    <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "4948e55bba714cb7b0ecc51eaee2e0df"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+
 </body>
 </html>

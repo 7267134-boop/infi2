@@ -2,6 +2,10 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="ai-document-summary" content="חשבון אינפיניטסימלי 2 (20475): מהדורת העל המשודרגת, זירת התרגול האינטראקטיבית והמעבדה הגרפית. כולל אימון מקיף בכל 7 יחידות הלימוד, מאגר שאלות אמריקאיות ושאלות מבחן עם משוב מיידי ופתרונות מפורטים, מעבדות גרפיות ויזואליות (רימן, טיילור, טורים, משטחים ב-ℝ²), סימולציות עומק, מעקב צבירת נקודות XP ושליטה מוחלטת בחומר הקורס." />
+
+    <!-- Global Theme Manager -->
+    <script src="theme-manager.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>חשבון אינפיניטסימלי 2 (20475) — מהדורת העל המשודרגת | שליטה מלאה ומעבדה גרפית</title>
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
@@ -1724,7 +1728,7 @@ function toggleSound() {
     if (gameState.soundEnabled) playTone('click');
 }
 
-function toggleTheme() {
+function _legacyGameToggleTheme() {
     // Dark mode removed per design specification; always keep pure high-contrast light mode
     document.body.classList.remove('dark-mode');
 }
@@ -6396,7 +6400,7 @@ function renderExamQuestionCardHtml(q, examObj, isSingleFocus) {
         }
 
 Object.assign(window, {
-    toggleSound, toggleTheme, openWelcomeModal, closeWelcomeModal, toggleTopFocusMode, switchTab, openSimById, openUnitExplorer, openSimForCurrentUnit,
+    toggleSound, openWelcomeModal, closeWelcomeModal, toggleTopFocusMode, switchTab, openSimById, openUnitExplorer, openSimForCurrentUnit,
     handleGlobalSearch, clearGlobalSearch, openUnitAndSearch, toggleUnitsHeaderCollapse,
     selectUnitTab, resetAndRenderUnitItems, loadMoreUnitItems, toggleCardDrawer, checkInlineQuiz,
     awardXpAndMastery, toggleRetryQueue, populateArenaSubtopicOptions, onArenaUnitFilterChange,
@@ -6428,6 +6432,12 @@ window.addEventListener('load', () => {
     renderMath(document.body);
 });
     </script>
+    <script src="ai_widget.js"></script>
+    <!-- Cloudflare Web Analytics -->
+    <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "4948e55bba714cb7b0ecc51eaee2e0df"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+
 
 
 </body>

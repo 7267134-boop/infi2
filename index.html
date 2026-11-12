@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl" class="h-full">
 <head>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e11d48'><path d='M15 4c-2.2 0-4 1.8-4 4v7c0 1.1-.9 2-2 2s-2-.9-2-2V9H5v6c0 2.2 1.8 4 4 4s4-1.8 4-4V8c0-1.1.9-2 2-2s2 .9 2 2v6h2V8c0-2.2-1.8-4-4-4z'/></svg>">
+    
+    <meta name="ai-document-summary" content="חשבון אינפיניטסימלי 2 (20475): פורטל הלמידה, התרגול והסיכום המקיף של האוניברסיטה הפתוחה. כולל סייר אינטראקטיבי של 100 רמות אינטגרלים שלב-אחר-שלב, ניווט ישיר ל-7 יחידות הלימוד (האינטגרל המסוים, שיטות אינטגרציה, אינטגרלים מוכללים, פיתוחי טיילור ומקלורן, טורים אינסופיים, טורי פונקציות, וחדו&quot;א בשני משתנים), פורטל 97 בחינות רשמיות, ספר הסיכום המלא, וזירת המשחק והמעבדות הגרפיות." />
+
+    <!-- Global Theme Manager -->
+    <script src="theme-manager.js"></script><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e11d48'><path d='M15 4c-2.2 0-4 1.8-4 4v7c0 1.1-.9 2-2 2s-2-.9-2-2V9H5v6c0 2.2 1.8 4 4 4s4-1.8 4-4V8c0-1.1.9-2 2-2s2 .9 2 2v6h2V8c0-2.2-1.8-4-4-4z'/></svg>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>חשבון אינפיניטסימלי 2 (20475) | פורטל הלמידה והסיכום המקיף</title>
@@ -139,49 +143,28 @@
             animation-play-state: paused;
         }
 
-        /* GENTLE HORIZONTAL SWAY FOR CTA BUTTON (הזזה עדינה ימינה ושמאלה) */
-        @keyframes ctaGentleSway {
-            0%, 100% {
-                transform: translateX(0);
-            }
-            30% {
-                transform: translateX(2.5px);
-            }
-            70% {
-                transform: translateX(-2.5px);
-            }
-        }
-
+        /* CTA BUTTON - COMPLETELY MOTIONLESS WHILE READING, SUBTLE HOVER SCALE ONLY */
         .unit-cta-button {
-            animation: ctaGentleSway 3s ease-in-out infinite;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .unit-expanded-popover:hover .unit-cta-button,
         .unit-cta-button:hover {
-            animation-play-state: paused;
             transform: scale(1.05);
         }
 
-        /* SUBTLE MULTI-DIRECTIONAL FLOATING FOR THE UNIT CARD (תזוזה עדינה לכל הכיוונים בריבוע היחידה) */
-        @keyframes popoverFloatAllDirections {
+        /* SUBTLE ORGANIC BORDER MOTION (רק המסגרת זזה בעדינות, הריבוע והכתב יציבים לחלוטין) */
+        @keyframes popoverBorderOrganic {
             0%, 100% {
-                transform: translate3d(-50%, -50%, 0);
+                border-radius: 1.5rem 1.35rem 1.65rem 1.4rem / 1.4rem 1.6rem 1.35rem 1.55rem;
             }
-            20% {
-                transform: translate3d(calc(-50% + 2.5px), calc(-50% - 2px), 0);
+            33% {
+                border-radius: 1.35rem 1.6rem 1.4rem 1.65rem / 1.6rem 1.35rem 1.55rem 1.4rem;
             }
-            40% {
-                transform: translate3d(calc(-50% - 2px), calc(-50% - 1.5px), 0);
-            }
-            60% {
-                transform: translate3d(calc(-50% - 1.5px), calc(-50% + 2.5px), 0);
-            }
-            80% {
-                transform: translate3d(calc(-50% + 2px), calc(-50% + 1.5px), 0);
+            66% {
+                border-radius: 1.6rem 1.4rem 1.55rem 1.35rem / 1.4rem 1.55rem 1.4rem 1.65rem;
             }
         }
 
@@ -217,11 +200,13 @@
             text-decoration: none !important;
         }
 
+        /* Box and text stay 100% still at center, only the organic border frame undulates */
         .unit-bubble-wrapper:hover .unit-expanded-popover,
         .unit-bubble-wrapper:focus-within .unit-expanded-popover {
             opacity: 1;
             pointer-events: auto;
-            animation: popoverFloatAllDirections 4.5s ease-in-out infinite;
+            transform: translate3d(-50%, -50%, 0) scale(1);
+            animation: popoverBorderOrganic 5.5s ease-in-out infinite;
         }
 
         @keyframes organic-droplet-1 {
@@ -419,6 +404,13 @@
             </span>
         </div>
     </a>
+
+    <!-- Theme Toggle Button (Day / Dark / Reading Mode) (Top-Right) -->
+    <button id="theme-toggle-btn" onclick="toggleTheme()" title="החלף ערכת נושא (יום / לילה / קריאה)"
+        class="fixed top-3 right-3 sm:top-5 sm:right-5 z-[70] w-11 h-11 sm:w-13 sm:h-13 rounded-2xl flex items-center justify-center text-xl sm:text-2xl shadow-md transition-all duration-300 hover:scale-110 active:scale-95 border border-slate-300/80 bg-white/80 backdrop-blur-md text-slate-800 cursor-pointer">
+        ☀️
+    </button>
+
 
     <!-- Main Container -->
     <div class="relative z-10 min-h-full flex flex-col items-center px-4 sm:px-6 md:px-8 py-8 sm:py-12">
@@ -1578,6 +1570,12 @@
             }
         });
     </script>
+    <script src="ai_widget.js"></script>
+    <!-- Cloudflare Web Analytics -->
+    <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "4948e55bba714cb7b0ecc51eaee2e0df"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+
 
 </body>
 </html>

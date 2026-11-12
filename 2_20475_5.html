@@ -15564,6 +15564,25 @@ $$\sum_{k=1}^{\infty} a_{\sigma(k)} = \sum_{n=1}^{\infty} a_n = S$$</div>
       .replace(/[\\{}]/g, '')
       .replace(/\s+/g, ' ')
       .trim();
+    const subMap = {
+      '0': '₀', '1': '₁', '2': '₂', '3': '₃', '4': '₄',
+      '5': '₅', '6': '₆', '7': '₇', '8': '₈', '9': '₉',
+      '+': '₊', '-': '₋', '=': '₌', '(': '₍', ')': '₎',
+      'a': 'ₐ', 'e': 'ₑ', 'h': 'ₕ', 'i': 'ᵢ', 'j': 'ⱼ',
+      'k': 'ₖ', 'l': 'ₗ', 'm': 'ₘ', 'n': 'ₙ', 'o': 'ₒ',
+      'p': 'ₚ', 'r': 'ᵣ', 's': 'ₛ', 't': 'ₜ', 'u': 'ᵤ',
+      'v': 'ᵥ', 'x': 'ₓ', 'y': 'ᵧ'
+    };
+    const supMap = {
+      '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴',
+      '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹',
+      '+': '⁺', '-': '⁻', '=': '⁼', '(': '⁽', ')': '⁾',
+      'n': 'ⁿ', 'i': 'ⁱ', 'k': 'ᵏ', 't': 'ᵗ', 'T': 'ᵀ'
+    };
+    out = out.replace(/_\{([^}]+)\}/g, (_, chars) => chars.split('').map(c => subMap[c] || c).join(''));
+    out = out.replace(/_([0-9a-z])/gi, (_, c) => subMap[c.toLowerCase()] || ('_' + c));
+    out = out.replace(/\^\{([^}]+)\}/g, (_, chars) => chars.split('').map(c => supMap[c] || c).join(''));
+    out = out.replace(/\^([0-9a-z])/gi, (_, c) => supMap[c] || ('^' + c));
     if (maxLen && out.length > maxLen) out = out.slice(0, maxLen - 1) + '…';
     return window.escXml(out);
   };
@@ -15572,7 +15591,7 @@ $$\sum_{k=1}^{\infty} a_{\sigma(k)} = \sum_{n=1}^{\infty} a_n = S$$</div>
     const clean = String(txt || '').replace(/<[^>]*>/g, '').replace(/\$+/g, '').trim();
     if (!clean) return '';
     const fontSize = fs || 9.0;
-    const anc = anchor || 'middle';
+    let anc = anchor || 'middle'; if (anc === 'end') anc = 'start';
     const estW = clean.length * fontSize * 0.54;
     const lenAttr = (maxW && estW > maxW) ? ` textLength="${Math.max(24, Math.floor(maxW))}" lengthAdjust="spacingAndGlyphs"` : '';
     return `<text x="${x}" y="${y}" text-anchor="${anc}" direction="rtl" unicode-bidi="isolate" font-family="Heebo, Assistant, sans-serif" font-size="${fontSize}" font-weight="800" fill="${fill || '#0f172a'}"${lenAttr}>${window.escXml(clean)}</text>`;
@@ -15581,10 +15600,10 @@ $$\sum_{k=1}^{\infty} a_{\sigma(k)} = \sum_{n=1}^{\infty} a_n = S$$</div>
     let clean = window.cleanLatexForSvg(rawLatex, 70).replace(/[\u0590-\u05FF]+/g, '').replace(/\s{2,}/g, ' ').trim();
     if (!clean) clean = 'S_k = ∑ a_n';
     const fontSize = fs || 8.8;
-    const anc = anchor || 'middle';
+    let anc = anchor || 'middle'; if (anc === 'end') anc = 'start';
     const estW = clean.length * fontSize * 0.57;
     const lenAttr = (maxW && estW > maxW) ? ` textLength="${Math.max(24, Math.floor(maxW))}" lengthAdjust="spacingAndGlyphs"` : '';
-    return `<text x="${x}" y="${y}" text-anchor="${anc}" direction="ltr" unicode-bidi="isolate" font-family="JetBrains Mono, monospace" font-size="${fontSize}" font-weight="800" fill="${fill || '#0f172a'}"${lenAttr}>${clean}</text>`;
+    return `<text x="${x}" y="${y}" text-anchor="${anc}" direction="ltr" unicode-bidi="isolate" font-family="KaTeX_Main, Cambria Math, 'Times New Roman', serif" font-size="${fontSize}" font-weight="800" fill="${fill || '#0f172a'}"${lenAttr}>${clean}</text>`;
   };
   // 87 Unique Circular Launcher Icons (12 Geometric Motifs × 8 Pastel Themes)
   window.renderIconSVG = function(tpl, shortCode, simIdx) {
@@ -16647,7 +16666,7 @@ $$\sum_{k=1}^{\infty} a_{\sigma(k)} = \sum_{n=1}^{\infty} a_n = S$$</div>
           <rect x="336" y="${py}" width="212" height="39" rx="8" fill="${isSel ? pal.aBg : '#ffffff'}" stroke="${isSel ? pal.a : '#cbd5e1'}" stroke-width="${isSel ? 2.2 : 1.2}"/>
           <circle cx="534" cy="${py + 19.5}" r="8.5" fill="${isSel ? pal.a : '#e2e8f0'}"/>
           ${window.svgMathText(534, py + 23, 14, String(i + 1), isSel ? '#ffffff' : '#475569', 8.0)}
-          ${window.svgHebText(518, py + 15, 174, pr.lbl, isSel ? pal.a : '#0f172a', 8.0, 'end')}
+          ${window.svgHebText(518, py + 15, 174, pr.lbl, isSel ? pal.a : '#0f172a', 8.0, 'start')}
           ${window.svgMathText(432, py + 31, 176, pr.math || entry.formulaLatex, isSel ? '#0f172a' : '#475569', 7.6)}
         </g>
       `;
@@ -16835,6 +16854,7 @@ $$\sum_{k=1}^{\infty} a_{\sigma(k)} = \sum_{n=1}^{\infty} a_n = S$$</div>
     if (formulaBannerEl) {
       formulaBannerEl.setAttribute('dir', 'ltr');
       formulaBannerEl.innerHTML = entry.formulaLatex ? `$${entry.formulaLatex}$` : '';
+      if (window.renderMathInElementSafe) window.renderMathInElementSafe(formulaBannerEl, true);
     }
     modal.classList.remove('hidden');
     modal.classList.add('flex');

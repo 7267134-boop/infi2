@@ -61,6 +61,13 @@
         applyTheme();
     };
 
+    window.addEventListener('storage', function(e) {
+        if (e.key === 'site-theme') {
+            currentTheme = e.newValue || 'normal';
+            applyTheme();
+        }
+    });
+
     applyTheme();
     window.addEventListener('DOMContentLoaded', updateThemeIcon);
 })();
