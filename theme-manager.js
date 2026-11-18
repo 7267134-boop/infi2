@@ -85,4 +85,13 @@
 
     applyTheme();
     window.addEventListener('DOMContentLoaded', updateThemeIcon);
+
+    // Auto-load course-modals.js across all pages
+    (function loadCourseModals() {
+        if (document.querySelector('script[src*="course-modals.js"]')) return;
+        const script = document.createElement('script');
+        script.src = 'course-modals.js';
+        script.defer = true;
+        document.head.appendChild(script);
+    })();
 })();

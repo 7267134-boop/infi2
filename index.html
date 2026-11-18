@@ -4,8 +4,9 @@
     
     <meta name="ai-document-summary" content="חשבון אינפיניטסימלי 2 (20475): פורטל הלמידה, התרגול והסיכום המקיף של האוניברסיטה הפתוחה. כולל סייר אינטראקטיבי של 100 רמות אינטגרלים שלב-אחר-שלב, ניווט ישיר ל-7 יחידות הלימוד (האינטגרל המסוים, שיטות אינטגרציה, אינטגרלים מוכללים, פיתוחי טיילור ומקלורן, טורים אינסופיים, טורי פונקציות, וחדו&quot;א בשני משתנים), פורטל 97 בחינות רשמיות, ספר הסיכום המלא, וזירת המשחק והמעבדות הגרפיות." />
 
-    <!-- Global Theme Manager -->
-    <script src="theme-manager.js"></script><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e11d48'><path d='M15 4c-2.2 0-4 1.8-4 4v7c0 1.1-.9 2-2 2s-2-.9-2-2V9H5v6c0 2.2 1.8 4 4 4s4-1.8 4-4V8c0-1.1.9-2 2-2s2 .9 2 2v6h2V8c0-2.2-1.8-4-4-4z'/></svg>">
+    <!-- Global Theme Manager & Modals -->
+    <script src="theme-manager.js"></script>
+    <script src="course-modals.js?v=20261116"></script><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e11d48'><path d='M15 4c-2.2 0-4 1.8-4 4v7c0 1.1-.9 2-2 2s-2-.9-2-2V9H5v6c0 2.2 1.8 4 4 4s4-1.8 4-4V8c0-1.1.9-2 2-2s2 .9 2 2v6h2V8c0-2.2-1.8-4-4-4z'/></svg>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>חשבון אינפיניטסימלי 2 (20475) | פורטל הלמידה והסיכום המקיף</title>
@@ -1112,6 +1113,22 @@
             <!-- Delicate Frosted Card (Very transparent, whisper of blur, 100% legible) -->
             <div class="w-full max-w-2xl bg-white/15 backdrop-blur-[2px] rounded-3xl p-5 sm:p-6 border border-white/30 shadow-none flex flex-col items-center text-center mx-auto mb-3" dir="rtl">
                 
+                <!-- Quick Access Buttons for Welcome Roadmap & Share Modal -->
+                <div class="flex flex-wrap justify-center items-center gap-3 mb-4">
+                    <button type="button" onclick="window.showCourseWelcomeModal()"
+                        title="פתיחת מדריך האתר ומפת הלימוד"
+                        class="px-4 py-2 rounded-full bg-white/80 backdrop-blur-md border border-rose-200/90 hover:border-rose-500 hover:bg-rose-50 text-rose-800 hover:text-rose-900 text-xs sm:text-sm font-bold transition-all duration-300 shadow-xs hover:shadow-md hover:-translate-y-0.5 flex items-center gap-2 cursor-pointer">
+                        <span>ℹ️</span>
+                        <span>מדריך ומפת האתר</span>
+                    </button>
+                    <button type="button" onclick="window.showCourseShareModal()"
+                        title="פתיחת חלון שיתוף הקורס ומאגר הקורסים הראשי"
+                        class="px-4 py-2 rounded-full bg-white/80 backdrop-blur-md border border-pink-200/90 hover:border-pink-500 hover:bg-pink-50 text-pink-800 hover:text-pink-900 text-xs sm:text-sm font-bold transition-all duration-300 shadow-xs hover:shadow-md hover:-translate-y-0.5 flex items-center gap-2 cursor-pointer">
+                        <span>💙</span>
+                        <span>שיתוף האתר ומאגר הקורסים</span>
+                    </button>
+                </div>
+
                 <!-- Social & Contact Buttons (LinkedIn & WhatsApp ONLY - Exact Match to Linear 1) -->
                 <div class="flex justify-center items-center gap-4 mb-3" dir="ltr">
                     <!-- LinkedIn -->
